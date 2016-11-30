@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Installing and Configuring the MongoDB Managed Service for Pivotal Cloud Foundry |
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  <script>
+//Global Google Search
+(function() {
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + '';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+
+<script type="text/javascript">
+  if (window.location.host === 'hello') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+<script type="text/javascript">
+  setTimeout(function() {
+    var a = document.createElement("script");
+    var b = document.getElementsByTagName("script")[0];
+    a.src = document.location.protocol + "//script.crazyegg.com/pages/scripts/0020/8294.js?" + Math.floor(new Date().getTime() / 3600000);
+    a.async = true;
+    a.type = "text/javascript";
+    b.parentNode.insertBefore(a, b)
+  }, 1);
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="mongodb mongodb_installing has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+       
+    <header class="header header-layout">
+      <h1 class="logo">
+        <a href="/">Default Book Title</a>
+      </h1>
+      
+      <div class="header-links js-bar-links">
+        <div class="btn-menu" data-behavior="MenuMobile"></div>
+        
+        <div class="header-item">
+          
+        </div>
+        <!--Default search-->
+<!--If book needs something different, add a book-search partial to the book's layouts folder-->
+<div class="header-item searchbar js-searchbar">
+  <a class="search-icon" data-behavior="Search"></a>
+  <div class="search-input">
+    <div class="search-input-inner" id="docs-search">
+        <gcse:searchbox></gcse:searchbox>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+      <li>
+        <a id='home-nav-link' href="/mongodb/index.html"> MongoDB Managed Service for Pivotal Cloud Foundry</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/installing.html">Installing and Configuring the MongoDB Managed Service for PCF</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
+      </li>
+
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+        
+          <h1 class="title-container" >
+    Installing and Configuring the MongoDB Managed Service for Pivotal Cloud Foundry
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#install">Install and Configure the MongoDB Managed Service for PCF Tile</a></li>
+<li><a href="#troubleshoot">Troubleshooting</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>This topic describes how to install and configure the MongoDB Managed Service for Pivotal Cloud Foundry (PCF) tile.</p>
+
+<h2><a id='install'></a> Install and Configure the MongoDB Managed Service for PCF Tile</h2>
+
+<ol>
+<li><p>Download the product file from <a href="http://network.pivotal.io">Pivotal Network</a>.</p></li>
+<li><p>Navigate to the Ops Manager Installation Dashboard and click <strong>Import a Product</strong> to upload the product file. </p></li>
+<li><p>Click <strong>Add</strong> next to the uploaded MongoDB Managed Service for PCF tile in the Ops Manager <strong>Available Products</strong> view to add it to your staging area.</p></li>
+<li><p>Click the newly added <strong>MongoDB Managed Service for PCF</strong> tile.</p></li>
+<li><p>Click <strong>MongoDB On-Demand</strong>.
+<img alt="Ops Man Config" src="images/config.png" /></p></li>
+<li><p>For <strong>MongoDB Ops Manager URL</strong>, enter the URL of your MongoDB Ops Manager web interface.</p></li>
+<li><p>For <strong>MongoDB Operations Manager username</strong>, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.</p></li>
+<li><p>For <strong>MongoDB Ops Manager API key</strong>, enter the key associated with your MongoDB account.</p></li>
+<li><p>For <strong>MongoDB availability zone(s)</strong>, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB. The availability zones must have an associated service network.</p></li>
+<li><p>Click <strong>Save</strong>.  </p></li>
+<li><p>Return to the Ops Manager Installation Dashboard and click <strong>Apply Changes</strong> to install the MongoDB Managed Service for PCF tile.</p></li>
+<li><p>Once the installation has finished, see the <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a> topic for more information about to create and bind MongoDB service instances.</p></li>
+</ol>
+
+<h2><a id="troubleshoot"></a> Troubleshooting</h2>
+
+<p>This section describes how to troubleshoot known issues when installing the MongoDB Managed Service for PCF tile.</p>
+
+<h3>Symptom</h3>
+
+<p>MongoDB Ops Manager is not found.</p>
+
+<h3>Explanation</h3>
+
+<p>The problem may be produced by one of the following causes:</p>
+
+<ul>
+<li>MongoDB Ops Manager is not reachable.</li>
+<li>MongoDB Ops Manager API is not enabled.</li>
+<li>MongoDB Ops Manager API key is invalid.</li>
+</ul>
+
+<h3>Solution</h3>
+
+<p>Perform the following solutions to fix the problem:</p>
+
+<ul>
+<li>Ensure that MongoDB Ops Manager is running and reachable across the network.</li>
+<li>Navigate to <strong>Group Settings</strong> in MongoDB Ops Manager and ensure that <strong>Public API</strong> is enabled.</li>
+<li>Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid. If not, navigate to <strong>Group Settings</strong> in MongoDB Ops Manager and generate a new one.</li>
+</ul>
+
+          <gcse:searchresults></gcse:searchresults>
+<a id='repo-link' href='http://github.com/docs-content/tree/master/installing.html.md.erb'>View the source for this page in GitHub</a>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

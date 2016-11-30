@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      MongoDB Managed Service for Pivotal Cloud Foundry |
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  <script>
+//Global Google Search
+(function() {
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + '';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+
+<script type="text/javascript">
+  if (window.location.host === 'hello') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+<script type="text/javascript">
+  setTimeout(function() {
+    var a = document.createElement("script");
+    var b = document.getElementsByTagName("script")[0];
+    a.src = document.location.protocol + "//script.crazyegg.com/pages/scripts/0020/8294.js?" + Math.floor(new Date().getTime() / 3600000);
+    a.async = true;
+    a.type = "text/javascript";
+    b.parentNode.insertBefore(a, b)
+  }, 1);
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="mongodb mongodb_index has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+       
+    <header class="header header-layout">
+      <h1 class="logo">
+        <a href="/">Default Book Title</a>
+      </h1>
+      
+      <div class="header-links js-bar-links">
+        <div class="btn-menu" data-behavior="MenuMobile"></div>
+        
+        <div class="header-item">
+          
+        </div>
+        <!--Default search-->
+<!--If book needs something different, add a book-search partial to the book's layouts folder-->
+<div class="header-item searchbar js-searchbar">
+  <a class="search-icon" data-behavior="Search"></a>
+  <div class="search-input">
+    <div class="search-input-inner" id="docs-search">
+        <gcse:searchbox></gcse:searchbox>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+      <li>
+        <a id='home-nav-link' href="/mongodb/index.html"> MongoDB Managed Service for Pivotal Cloud Foundry</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/installing.html">Installing and Configuring the MongoDB Managed Service for PCF</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
+      </li>
+
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+        
+          <h1 class="title-container" >
+    MongoDB Managed Service for Pivotal Cloud Foundry
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#snapshot">Product Snapshot</a></li>
+<li><a href="#reqs">Requirements</a></li>
+<li><a href="#limits">Limitations</a></li>
+<li><a href="#feedback">Feedback</a></li>
+<li><a href="#license">License</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>This documentation describes the MongoDB Managed Service for Pivotal Cloud Foundry (PCF). The MongoDB Managed Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace. Developers can provision MongoDB databases on an external MongoDB server by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).</p>
+
+<h2><a id="overview"></a> Overview</h2>
+
+<p>The MongoDB Managed Service for PCF has the following key features:</p>
+
+<ul>
+<li>The ability to provision a MongoDB service instance in standalone, replica set, or sharded cluster configuration</li>
+<li>Binding applications to the instance creates unique credentials for each application to access the database</li>
+<li>Supports deployment of MongoDB Community or Enterprise server</li>
+</ul>
+
+<h2><a id="snapshot"></a>Product Snapshot</h2>
+
+<p>Current Partner Tile for Pivotal Cloud Foundry Details</p>
+
+<ul>
+<li><strong>Version</strong>: v0.1</li>
+<li><strong>Release Date</strong>: December 15, 2016 </li>
+<li><strong>Compatible Ops Manager Version(s)</strong>: 1.8.x</li>
+<li><strong>Compatible Elastic Runtime Version(s)</strong>: 1.8.x</li>
+<li><strong>vSphere support?</strong> Yes</li>
+</ul>
+
+<h2><a id="reqs"></a>Requirements</h2>
+
+<p>Before installing the MongoDB Managed Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys and manages a MongoDB server in your environment.</p>
+
+<p>Download MongoDB Ops Manager from <a href="https://www.mongodb.com/download-center#ops-manager">MongoDB</a>, and follow the <a href="https://docs.opsmanager.mongodb.com/current/installation/">MongoDB documentation</a> to install it.</p>
+
+<p>For production, you must have a MongoDB subscription. See the <a href="#license">License</a> section for more information.</p>
+
+<h2><a id="limits"></a>Limitations</h2>
+
+<p>The MongoDB Managed Service for PCF has the following limitations:</p>
+
+<ul>
+<li>Users are limited to choosing one of three pre-configured plans.</li>
+<li>Support for creating blank MongoDB agent VMs is not available. </li>
+<li>The standalone and single-replica-set are ready for release and the sharded cluster will be available soon.</li>
+</ul>
+
+<h2><a id="feedback"></a>Feedback</h2>
+
+<p>Please provide any bugs, feature requests, or questions to the <a href="mailto:pivotal-cf-feedback@pivotal.io">Pivotal Cloud Foundry Feedback</a> list.</p>
+
+<h2><a id='license'></a>License</h2>
+
+<p>The product integrates with MongoDB Ops Manager, which requires a MongoDB subscription to run in production. You may use MongoDB Enterprise products in development without need for a subscription. Visit <a href="https://www.mongodb.com/lp/contact/mongodb-professional">MongoDB</a> for more information about MongoDB subscriptions.</p>
+
+          <gcse:searchresults></gcse:searchresults>
+<a id='repo-link' href='http://github.com/docs-content/tree/master/index.html.md.erb'>View the source for this page in GitHub</a>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

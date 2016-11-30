@@ -1,0 +1,69 @@
+---
+title: Creating and Binding MongoDB Service Instances
+owner: Partners
+---
+
+This topic describes how developers create and bind instances of the MongoDB Managed Service for Pivotal Cloud Foundry (PCF).
+
+After deploying the MongoDB Managed Service for PCF tile, the MongoDB Managed Service appears in the Marketplace. Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or Apps Manager to create an instance of the service and bind it to applications. Binding instances creates unique credentials for each application to access the database.
+
+##<a id='cf-cli'></a> Create and Bind a Service Instance with the cf CLI
+
+To create and bind an instance of the MongoDB Managed Service with the cf CLI, perform the following steps:
+
+1. Set your API endpoint to the Cloud Controller of your deployment.
+  <pre class="terminal">
+  $ cf api api.YOUR-SYSTEM-DOMAIN
+  Setting api endpoint to api.YOUR-SYSTEM-DOMAIN...
+  OK
+  API endpoint:  <span>https:</span>//api.YOUR-SYSTEM-DOMAIN (API version: 2.59.0)
+  Not logged in. Use 'cf login' to log in.
+  </pre>
+1. Log in to your deployment and select an org and a space.
+  <pre class="terminal">
+  $ cf login
+  API endpoint: <span>https:</span>//api.YOUR-SYSTEM-DOMAIN
+  Email> user<span>@</span>example.com
+  Password>
+  </pre>
+1. List the Marketplace services and locate the MongoDB Managed Service.
+	<pre class="terminal">
+	$ cf marketplace
+	Getting services from marketplace in org example / space development as user<span>@</span>example.com...
+	OK
+
+	service          plans                           description
+	mongodb-managed  TK                              MongoDB Managed Service
+	</pre>
+1. Create an instance of the MongoDB Managed Service. Select either the `TK` or `TK` service plan. 
+
+	<pre class="terminal">
+	$ cf create-service mongodb-managed TK YOUR-SERVICE-INSTANCE
+	Creating service instance YOUR-SERVICE-INSTANCE in org example / space development as user@example.com...
+	OK
+	</pre>
+
+1. Bind the instance to an application.
+  <pre class="terminal">
+  $ cf bind-service YOUR-APP YOUR-SERVICE-INSTANCE
+  Binding service YOUR-SERVICE-INSTANCE to app YOUR-APP in org example / space development as user@example.com...
+  OK
+  TIP: Use 'cf restage YOUR-APP' to ensure your env variable changes take effect
+  </pre>
+1. Restage the application for the binding to take effect.
+  <pre class="terminal">
+  $ cf restage YOUR-APP
+  </pre>
+
+##<a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager
+
+To create and bind an instance of the MongoDB Managed Service in Apps Manager, perform the following steps:
+
+1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in.
+1. Click **Marketplace** in the left navigation.
+1. Click **MongoDB Managed Service**.
+1. Select either the `TK` or the `TK` service plan. 
+1. Enter an **Instance Name** and select a space under **Add to Space**. To bind the service instance to an application, select an application under **Bind to App**.
+1. Click **Add**.
+  You can also bind an application to a service instance by navigating to the application page, clicking **Services**, then clicking **Bind a Service**. 
+1. Select a service instance to bind to the application and click **Bind**.

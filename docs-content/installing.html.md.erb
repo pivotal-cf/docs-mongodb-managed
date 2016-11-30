@@ -1,0 +1,57 @@
+---
+title: Installing and Configuring the MongoDB Managed Service for Pivotal Cloud Foundry 
+owner: Partners
+---
+
+This topic describes how to install and configure the MongoDB Managed Service for Pivotal Cloud Foundry (PCF) tile.
+
+##<a id='install'></a> Install and Configure the MongoDB Managed Service for PCF Tile
+
+1. Download the product file from [Pivotal Network](http://network.pivotal.io).
+
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+
+1. Click **Add** next to the uploaded MongoDB Managed Service for PCF tile in the Ops Manager **Available Products** view to add it to your staging area.
+
+1. Click the newly added **MongoDB Managed Service for PCF** tile.
+
+1. Click **MongoDB On-Demand**.
+	![Ops Man Config](images/config.png)
+
+1. For **MongoDB Ops Manager URL**, enter the URL of your MongoDB Ops Manager web interface.
+
+1. For **MongoDB Operations Manager username**, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.
+
+1. For **MongoDB Ops Manager API key**, enter the key associated with your MongoDB account.
+
+1. For **MongoDB availability zone(s)**, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB. The availability zones must have an associated service network.
+
+1. Click **Save**.  
+
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Managed Service for PCF tile.
+
+1. Once the installation has finished, see the [Creating and Binding MongoDB Service Instances](binding.html) topic for more information about to create and bind MongoDB service instances.
+
+## <a id="troubleshoot"></a> Troubleshooting
+
+This section describes how to troubleshoot known issues when installing the MongoDB Managed Service for PCF tile.
+
+###Symptom###
+
+MongoDB Ops Manager is not found.
+
+### Explanation###
+
+The problem may be produced by one of the following causes:
+
+* MongoDB Ops Manager is not reachable.
+* MongoDB Ops Manager API is not enabled.
+* MongoDB Ops Manager API key is invalid.
+
+### Solution ###
+
+Perform the following solutions to fix the problem:
+
+* Ensure that MongoDB Ops Manager is running and reachable across the network.
+* Navigate to **Group Settings** in MongoDB Ops Manager and ensure that **Public API** is enabled.
+* Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid. If not, navigate to **Group Settings** in MongoDB Ops Manager and generate a new one.

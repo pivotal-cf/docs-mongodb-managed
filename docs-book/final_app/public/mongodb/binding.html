@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Creating and Binding MongoDB Service Instances |
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  <script>
+//Global Google Search
+(function() {
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + '';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+
+<script type="text/javascript">
+  if (window.location.host === 'hello') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+<script type="text/javascript">
+  setTimeout(function() {
+    var a = document.createElement("script");
+    var b = document.getElementsByTagName("script")[0];
+    a.src = document.location.protocol + "//script.crazyegg.com/pages/scripts/0020/8294.js?" + Math.floor(new Date().getTime() / 3600000);
+    a.async = true;
+    a.type = "text/javascript";
+    b.parentNode.insertBefore(a, b)
+  }, 1);
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="mongodb mongodb_binding has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+       
+    <header class="header header-layout">
+      <h1 class="logo">
+        <a href="/">Default Book Title</a>
+      </h1>
+      
+      <div class="header-links js-bar-links">
+        <div class="btn-menu" data-behavior="MenuMobile"></div>
+        
+        <div class="header-item">
+          
+        </div>
+        <!--Default search-->
+<!--If book needs something different, add a book-search partial to the book's layouts folder-->
+<div class="header-item searchbar js-searchbar">
+  <a class="search-icon" data-behavior="Search"></a>
+  <div class="search-input">
+    <div class="search-input-inner" id="docs-search">
+        <gcse:searchbox></gcse:searchbox>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+      <li>
+        <a id='home-nav-link' href="/mongodb/index.html"> MongoDB Managed Service for Pivotal Cloud Foundry</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/installing.html">Installing and Configuring the MongoDB Managed Service for PCF</a>
+      </li>
+
+      <li>
+        <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
+      </li>
+
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+        
+          <h1 class="title-container" >
+    Creating and Binding MongoDB Service Instances
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#cf-cli">Create and Bind a Service Instance with the cf CLI</a></li>
+<li><a href="#apps-man">Create and Bind a Service Instance in Apps Manager</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>This topic describes how developers create and bind instances of the MongoDB Managed Service for Pivotal Cloud Foundry (PCF).</p>
+
+<p>After deploying the MongoDB Managed Service for PCF tile, the MongoDB Managed Service appears in the Marketplace. Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or Apps Manager to create an instance of the service and bind it to applications. Binding instances creates unique credentials for each application to access the database.</p>
+
+<h2><a id='cf-cli'></a> Create and Bind a Service Instance with the cf CLI</h2>
+
+<p>To create and bind an instance of the MongoDB Managed Service with the cf CLI, perform the following steps:</p>
+
+<ol>
+<li>Set your API endpoint to the Cloud Controller of your deployment.
+<pre class="terminal">
+$ cf api api.YOUR-SYSTEM-DOMAIN
+Setting api endpoint to api.YOUR-SYSTEM-DOMAIN...
+OK
+API endpoint:  <span>https:</span>//api.YOUR-SYSTEM-DOMAIN (API version: 2.59.0)
+Not logged in. Use &#39;cf login&#39; to log in.
+</pre></li>
+<li>Log in to your deployment and select an org and a space.
+<pre class="terminal">
+$ cf login
+API endpoint: <span>https:</span>//api.YOUR-SYSTEM-DOMAIN
+Email&gt; user<span>@</span>example.com
+Password&gt;
+</pre></li>
+<li><p>List the Marketplace services and locate the MongoDB Managed Service.
+<pre class="terminal">
+$ cf marketplace
+Getting services from marketplace in org example / space development as user<span>@</span>example.com...
+OK</p>
+
+<p>service          plans                           description
+mongodb-managed  TK                              MongoDB Managed Service
+</pre></p></li>
+<li><p>Create an instance of the MongoDB Managed Service. Select either the <code>TK</code> or <code>TK</code> service plan. </p>
+
+<pre class="terminal">
+$ cf create-service mongodb-managed TK YOUR-SERVICE-INSTANCE
+Creating service instance YOUR-SERVICE-INSTANCE in org example / space development as user@example.com...
+OK
+</pre></li>
+<li><p>Bind the instance to an application.
+<pre class="terminal">
+$ cf bind-service YOUR-APP YOUR-SERVICE-INSTANCE
+Binding service YOUR-SERVICE-INSTANCE to app YOUR-APP in org example / space development as <a href="mailto:user@example.com">user@example.com</a>...
+OK
+TIP: Use &#39;cf restage YOUR-APP&#39; to ensure your env variable changes take effect
+</pre></p></li>
+<li><p>Restage the application for the binding to take effect.
+<pre class="terminal">
+$ cf restage YOUR-APP
+</pre></p></li>
+</ol>
+
+<h2><a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager</h2>
+
+<p>To create and bind an instance of the MongoDB Managed Service in Apps Manager, perform the following steps:</p>
+
+<ol>
+<li>Navigate to <code>apps.YOUR-SYSTEM-DOMAIN</code> in a browser and log in.</li>
+<li>Click <strong>Marketplace</strong> in the left navigation.</li>
+<li>Click <strong>MongoDB Managed Service</strong>.</li>
+<li>Select either the <code>TK</code> or the <code>TK</code> service plan. </li>
+<li>Enter an <strong>Instance Name</strong> and select a space under <strong>Add to Space</strong>. To bind the service instance to an application, select an application under <strong>Bind to App</strong>.</li>
+<li>Click <strong>Add</strong>.
+You can also bind an application to a service instance by navigating to the application page, clicking <strong>Services</strong>, then clicking <strong>Bind a Service</strong>. </li>
+<li>Select a service instance to bind to the application and click <strong>Bind</strong>.</li>
+</ol>
+
+          <gcse:searchresults></gcse:searchresults>
+<a id='repo-link' href='http://github.com/docs-content/tree/master/binding.html.md.erb'>View the source for this page in GitHub</a>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>
