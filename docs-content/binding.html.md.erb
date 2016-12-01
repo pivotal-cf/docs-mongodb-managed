@@ -33,12 +33,12 @@ To create and bind an instance of the MongoDB Managed Service with the cf CLI, p
 	OK
 
 	service          plans                           description
-	mongodb-managed  TK                              MongoDB Managed Service
+	mongodb-managed  standalone, single_replica_set  MongoDB Managed Service
 	</pre>
-1. Create an instance of the MongoDB Managed Service. Select either the `TK` or `TK` service plan. 
+1. Create an instance of the MongoDB Managed Service. Select either the `standalone` or `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. The example below uses the `standalone` plan.
 
 	<pre class="terminal">
-	$ cf create-service mongodb-managed TK YOUR-SERVICE-INSTANCE
+	$ cf create-service mongodb-managed standalone YOUR-SERVICE-INSTANCE
 	Creating service instance YOUR-SERVICE-INSTANCE in org example / space development as user@example.com...
 	OK
 	</pre>
@@ -62,7 +62,7 @@ To create and bind an instance of the MongoDB Managed Service in Apps Manager, p
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in.
 1. Click **Marketplace** in the left navigation.
 1. Click **MongoDB Managed Service**.
-1. Select either the `TK` or the `TK` service plan. 
+1. Select either the `standalone` or the `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. 
 1. Enter an **Instance Name** and select a space under **Add to Space**. To bind the service instance to an application, select an application under **Bind to App**.
 1. Click **Add**.
   You can also bind an application to a service instance by navigating to the application page, clicking **Services**, then clicking **Bind a Service**. 
