@@ -3,13 +3,13 @@ title: Creating and Binding MongoDB Service Instances
 owner: Partners
 ---
 
-This topic describes how developers create and bind instances of the MongoDB Managed Service for Pivotal Cloud Foundry (PCF).
+This topic describes how developers create and bind instances of the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
 
-After deploying the MongoDB Managed Service for PCF tile, the MongoDB Managed Service appears in the Marketplace. Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or Apps Manager to create an instance of the service and bind it to applications. Binding instances creates unique credentials for each application to access the database.
+After deploying the MongoDB Enterprise Service for PCF tile, the MongoDB Enterprise Service appears in the Marketplace. Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or Apps Manager to create an instance of the service and bind it to applications. Binding instances creates unique credentials for each application to access the database.
 
 ##<a id='cf-cli'></a> Create and Bind a Service Instance with the cf CLI
 
-To create and bind an instance of the MongoDB Managed Service with the cf CLI, perform the following steps:
+To create and bind an instance of the MongoDB Enterprise Service with the cf CLI, perform the following steps:
 
 1. Set your API endpoint to the Cloud Controller of your deployment.
   <pre class="terminal">
@@ -26,19 +26,19 @@ To create and bind an instance of the MongoDB Managed Service with the cf CLI, p
   Email> user<span>@</span>example.com
   Password>
   </pre>
-1. List the Marketplace services and locate the MongoDB Managed Service.
+1. List the Marketplace services and locate the MongoDB Enterprise Service.
 	<pre class="terminal">
 	$ cf marketplace
 	Getting services from marketplace in org example / space development as user<span>@</span>example.com...
 	OK
 
 	service          plans                           description
-	mongodb-managed  standalone, single_replica_set  MongoDB Managed Service
+	mongodb-enterprise  standalone, single_replica_set  MongoDB Enterprise Service
 	</pre>
-1. Create an instance of the MongoDB Managed Service. Select either the `standalone` or `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. The example below uses the `standalone` plan.
+1. Create an instance of the MongoDB Enterprise Service. Select either the `standalone` or `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. The example below uses the `standalone` plan.
 
 	<pre class="terminal">
-	$ cf create-service mongodb-managed standalone YOUR-SERVICE-INSTANCE
+	$ cf create-service mongodb-enterprise standalone YOUR-SERVICE-INSTANCE
 	Creating service instance YOUR-SERVICE-INSTANCE in org example / space development as user@example.com...
 	OK
 	</pre>
@@ -57,11 +57,11 @@ To create and bind an instance of the MongoDB Managed Service with the cf CLI, p
 
 ##<a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager
 
-To create and bind an instance of the MongoDB Managed Service in Apps Manager, perform the following steps:
+To create and bind an instance of the MongoDB Enterprise Service in Apps Manager, perform the following steps:
 
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in.
 1. Click **Marketplace** in the left navigation.
-1. Click **MongoDB Managed Service**.
+1. Click **MongoDB Enterprise Service**.
 1. Select either the `standalone` or the `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. 
 1. Enter an **Instance Name** and select a space under **Add to Space**. To bind the service instance to an application, select an application under **Bind to App**.
 1. Click **Add**.
