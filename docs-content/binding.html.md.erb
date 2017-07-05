@@ -32,13 +32,13 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	Getting services from marketplace in org example / space development as user<span>@</span>example.com...
 	OK
 
-	service          plans                           description
-	mongodb-enterprise  standalone, single_replica_set  MongoDB Enterprise Service
+	service       plans                                           description
+	mongodb-odb  standalone, single_replica_set, sharded_cluster  MongoDB Enterprise Service
 	</pre>
-1. Create an instance of the MongoDB Enterprise Service. Select either the `standalone` or `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. The example below uses the `standalone` plan.
+1. Create an instance of the MongoDB Enterprise Service. Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan. The `standalone` plan provides a single node cluster of MongoDB, the `replica_set` plan provides a three-node replica set, and the `sharded_cluster` provides a sharded cluster with 2 shards (see Advanced config for details on different sharded cluster configurations). The example below uses the `standalone` plan.
 
 	<pre class="terminal">
-	$ cf create-service mongodb-enterprise standalone YOUR-SERVICE-INSTANCE
+	$ cf create-service mongodb-odb standalone YOUR-SERVICE-INSTANCE
 	Creating service instance YOUR-SERVICE-INSTANCE in org example / space development as user@example.com...
 	OK
 	</pre>
@@ -55,6 +55,24 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
   $ cf restage YOUR-APP
   </pre>
 
+##<a id='advanced-config'></a> Advanced Configuration for MongoDB Versions and Sharded Clusters
+
+Any plan can be configured to generate any supported version of MongoDB, community and enterprise, by supplying the "version" configuration parameter to the create-service command.  For the MongoDB version, type in the actual version number, and for enterprise, add "-ent" at the end.  For example:
+	<pre class= terminal">
+	$ cf create-service mongodb-odb standalone my-db -c '{"version": "3.4.5-ent"}'
+	</pre>
+
+For a sharded cluster, the following configuration parameters can be supplied to determine the topology of the cluster to be provisioned:
+* shards - determines the number of shards
+* replicas - determines the number of replicas in each shard
+* config_servers - determines the number of config servers
+* mongos - determins the number of mongos'
+
+The following example will provision a MongoDB sharded cluster with 3 shards, 3-node replica sets in each shard, 3 config servers, and 2 mongos processes
+	<pre class= terminal">
+	$ cf create-service mongodb-odb sharded_cluster my-sharded-db -c '{"shards": 3, "replicas": 3, "config_servers": 3, "mongos": 2}'
+	</pre>
+
 ##<a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager
 
 To create and bind an instance of the MongoDB Enterprise Service in Apps Manager, perform the following steps:
@@ -62,7 +80,7 @@ To create and bind an instance of the MongoDB Enterprise Service in Apps Manager
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in.
 1. Click **Marketplace** in the left navigation.
 1. Click **MongoDB Enterprise Service**.
-1. Select either the `standalone` or the `single_replica_set` service plan. The `standalone` plan provides a single node cluster of MongoDB, while the `single_replica_set` plan provides a three-node cluster of MongoDB. 
+1. Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan. The `standalone` plan provides a single node cluster of MongoDB, the `replica_set` plan provides a three-node cluster, and the `sharded_cluster` provides a sharded cluster with 2 shards by default (see above for different configurations). 
 1. Enter an **Instance Name** and select a space under **Add to Space**. To bind the service instance to an application, select an application under **Bind to App**.
 1. Click **Add**.
   You can also bind an application to a service instance by navigating to the application page, clicking **Services**, then clicking **Bind a Service**. 
