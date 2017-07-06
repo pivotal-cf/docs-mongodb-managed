@@ -43,6 +43,26 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	OK
 	</pre>
 
+1. Before binding the application, first check that the service was created.  You can do this by using cf service INSTANCE_NAME.  It will also give you a URL to the MongoDB Ops Manager group that contains the cluster so you can easily jump to MongoDB Ops Manager and manage, monitor, and backup the cluster.
+	<pre class="terminal">
+	$ cf service YOUR-SERVICE-INSTANCE
+	
+	Service instance: YOUR-SERVICE-INSTANCE
+	Service: mongodb-odb
+	Bound apps: 
+	Tags: 
+	Plan: standalone
+	Description: MongoDB Service
+	Documentation url: 
+	Dashboard: http://ec2-54-191-73-144.us-west-2.compute.amazonaws.com:8080/v2/595e8e04339ea10b5650eecb
+
+	Last Operation
+	Status: create succeeded
+	Message: Instance provisioning in progress
+	Started: 2017-07-06T19:22:44Z
+	Updated: 2017-07-06T19:24:49Z	
+	</pre>
+
 1. Bind the instance to an application.
   <pre class="terminal">
   $ cf bind-service YOUR-APP YOUR-SERVICE-INSTANCE
