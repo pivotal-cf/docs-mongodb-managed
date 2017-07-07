@@ -3,27 +3,29 @@ title: Release Notes
 owner: Partners
 ---
 
-### 0.8.0
+### v0.8.0
 
-**Release Date**: July 10th, 2017
+**Release Date**: July 10, 2017
 
 * Bug fixes
 * The tile has been updated to support:
-	* MongoDB versions 3.2.x - 3.4.x, community and Enterprise
-	* MongoDB Ops Manager versions 2.0.x - 3.4.x
-	* PCF version 1.8.x - 1.11.x
-* The tile now includes a 'sharded_cluster' plan that will provision a cluster with two shards (three-node replica sets) by default
-* The plans can now be configured via configuration parameters to set the MongoDB version and custom sharded cluster topologies
+	* MongoDB v3.2.x – v3.4.x, community and enterprise
+	* MongoDB Ops Manager v2.0.x – v3.4.x
+	* PCF v1.8.x – v1.11.x
+* The tile includes a 'sharded_cluster' plan that provisions a cluster with two shards (three-node replica sets) by default
+* The plans can be configured via configuration parameters to set the MongoDB version and custom sharded cluster topologies
 
 
-### 0.6.9
+### v0.6.9
 
 **Release Date**: December 8, 2016
 
 Features included in the release:
 
 * Closed Beta
-* The tile now deploys as a BOSH 2.0 managed service. It deploys VMs only when a service creation is instantiated by the user. The service is configured by MongoDB Enterprise Ops Manager. 
+* The tile now deploys as a BOSH 2.0 managed service.
+  It deploys VMs only when a service creation is instantiated by the user.
+  The service is configured by MongoDB Enterprise Ops Manager. 
 * The tile offers the ability to configure two flavors of MongoDB: Standalone and Single Replica Set.
 * The service plans deploy the following:
 	* `standalone`: Provides a single node cluster of MongoDB on the VM type selected during installation
