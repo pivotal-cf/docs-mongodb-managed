@@ -3,7 +3,7 @@ title: MongoDB Enterprise Service for Pivotal Cloud Foundry
 owner: Partners
 ---
 
-This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF). The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace. Developers can provision MongoDB databases on an external MongoDB server by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
+This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF). The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.  Those plans are integrated with MongoDB Ops Manager.  Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
 
 ## <a id="overview"></a> Overview
 
@@ -17,11 +17,13 @@ The MongoDB Enterprise Service for PCF has the following key features:
 
 Current Partner Tile for Pivotal Cloud Foundry Details
 
-* **Version**: v0.6.9
-* **Status**: Private Beta
+* **Version**: v0.8.0
+* **Status**: Public Beta
 * **Release Date**: December 8, 2016 
-* **Compatible Ops Manager Version(s)**: 1.8.x
-* **Compatible Elastic Runtime Version(s)**: 1.8.x
+* **Compatible Ops Manager Version(s)**: 1.8.x - 1.11.x
+* **Compatible Elastic Runtime Version(s)**: 1.8.x - 1.11.x
+* **Compatible MongoDB Version(s)**: 3.2.x, 3.4.x, community and enterprise
+* **Compatible MongoDB Ops Manager Versions(s)**: 2.0.x, 3.4.x
 * **vSphere support?** Yes
 * **AWS support?** Yes
 * **OpenStack support?** Yes

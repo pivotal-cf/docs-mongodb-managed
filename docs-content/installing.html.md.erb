@@ -16,11 +16,11 @@ This topic describes how to install and configure the MongoDB Enterprise Service
 1. Click the newly added **MongoDB Enterprise Service for PCF** tile.
 
 1. Click **MongoDB On-Demand**.
-	![Ops Man Config](images/config.png)
+	![Ops Man Config](images/config-v0.8.0.png)
 
 1. For **MongoDB Ops Manager URL**, enter the URL of your MongoDB Ops Manager web interface.
 
-1. For **MongoDB Operations Manager username**, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.
+1. For **MongoDB Ops Manager username**, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.
 
 1. For **MongoDB Ops Manager API key**, enter the key associated with your MongoDB account.
 
@@ -29,6 +29,8 @@ This topic describes how to install and configure the MongoDB Enterprise Service
 1. Click **Save**.  
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for PCF tile.
+
+1. Login to MongoDB Ops Manager and add the PCF Ops Manager IP Address to the API whitelist; see [MongoDB Ops Manager Documentation](https://docs.opsmanager.mongodb.com/current/tutorial/configure-public-api-access/) for further details.
 
 1. After the installation finishes, see the [Creating and Binding MongoDB Service Instances](binding.html) topic for more information about to create and bind MongoDB service instances.
 
