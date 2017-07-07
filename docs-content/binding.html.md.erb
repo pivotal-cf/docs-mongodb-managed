@@ -5,7 +5,10 @@ owner: Partners
 
 This topic describes how developers create and bind instances of the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
 
-After deploying the MongoDB Enterprise Service for PCF tile, the MongoDB Enterprise Service appears in the Marketplace. Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or Apps Manager to create an instance of the service and bind it to applications. Binding instances creates unique credentials for each application to access the database.
+After deploying the MongoDB Enterprise Service for PCF tile, the MongoDB Enterprise Service appears in the Marketplace.
+Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or
+Apps Manager to create an instance of the service and bind it to apps.
+Binding instances creates unique credentials for each app to access the database.
 
 ##<a id='cf-cli'></a> Create and Bind a Service Instance with the cf CLI
 
@@ -35,7 +38,13 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	service       plans                                           description
 	mongodb-odb  standalone, single_replica_set, sharded_cluster  MongoDB Enterprise Service
 	</pre>
-1. Create an instance of the MongoDB Enterprise Service. Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan. The `standalone` plan provides a single node cluster of MongoDB, the `replica_set` plan provides a three-node replica set, and the `sharded_cluster` provides a sharded cluster with 2 shards (see Advanced config for details on different sharded cluster configurations). The example below uses the `standalone` plan.
+1. Create an instance of the MongoDB Enterprise Service.
+   Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan.
+   The `standalone` plan provides a single node cluster of MongoDB, the `replica_set` plan provides a three-node replica set,
+   and the `sharded_cluster` provides a sharded cluster with two shards. 
+   For details on different sharded cluster configurations,
+   see [Advanced Configuration for MongoDB Versions and Sharded Clusters](#advanced-config).
+   The example below uses the `standalone` plan.
 
 	<pre class="terminal">
 	$ cf create-service mongodb-odb standalone YOUR-SERVICE-INSTANCE
@@ -43,7 +52,10 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	OK
 	</pre>
 
-1. Before binding the application, first check that the service was created.  You can do this by using cf service INSTANCE_NAME.  It will also give you a URL to the MongoDB Ops Manager group that contains the cluster so you can easily jump to MongoDB Ops Manager and manage, monitor, and backup the cluster.
+1. Before binding the app, first check that the service was created.
+   You can do this by using `cf service INSTANCE_NAME.`
+   It will also give you a URL to the MongoDB Ops Manager group that contains the cluster
+   so you can jump to MongoDB Ops Manager and manage, monitor, and backup the cluster.
 	<pre class="terminal">
 	$ cf service YOUR-SERVICE-INSTANCE
 	
@@ -54,7 +66,7 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	Plan: standalone
 	Description: MongoDB Service
 	Documentation url: 
-	Dashboard: http://ec2-54-191-73-144.us-west-2.compute.amazonaws.com:8080/v2/595e8e04339ea10b5650eecb
+	Dashboard: http<span>:</span>//ec2-54-191-73-144.us-west-2.compute.amazonaws.com:8080/v2/595e8e04339ea10b5650eecb
 
 	Last Operation
 	Status: create succeeded
@@ -63,35 +75,38 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 	Updated: 2017-07-06T19:24:49Z	
 	</pre>
 
-1. Bind the instance to an application.
+1. Bind the instance to an app.
   <pre class="terminal">
   $ cf bind-service YOUR-APP YOUR-SERVICE-INSTANCE
   Binding service YOUR-SERVICE-INSTANCE to app YOUR-APP in org example / space development as user@example.com...
   OK
   TIP: Use 'cf restage YOUR-APP' to ensure your env variable changes take effect
   </pre>
-1. Restage the application for the binding to take effect.
+1. Restage the app for the binding to take effect.
   <pre class="terminal">
   $ cf restage YOUR-APP
   </pre>
 
 ##<a id='advanced-config'></a> Advanced Configuration for MongoDB Versions and Sharded Clusters
 
-Any plan can be configured to generate any supported version of MongoDB, community and enterprise, by supplying the "version" configuration parameter to the create-service command.  For the MongoDB version, type in the actual version number, and for enterprise, add "-ent" at the end.  For example:
+Any plan can be configured to generate any supported version of MongoDB, community and enterprise,
+by supplying the `"version"` configuration parameter to the create-service command.
+For the MongoDB version, type in the actual version number, and for enterprise, add `-ent` at the end.
+For example:
 	<pre class= terminal">
-	$ cf create-service mongodb-odb standalone my-db -c '{"version": "3.4.5-ent"}'
-	</pre>
+	$ cf create-service mongodb-odb standalone my-db -c '{"version": "3.4.5-ent"}' </pre>
 
 For a sharded cluster, the following configuration parameters can be supplied to determine the topology of the cluster to be provisioned:
-* shards - determines the number of shards
-* replicas - determines the number of replicas in each shard
-* config_servers - determines the number of config servers
-* mongos - determins the number of mongos'
 
-The following example will provision a MongoDB sharded cluster with 3 shards, 3-node replica sets in each shard, 3 config servers, and 2 mongos processes
+* `shards` — determines the number of shards
+* `replicas` — determines the number of replicas in each shard
+* `config_servers` — determines the number of config servers
+* `mongos` — determines the number of mongos'
+
+The following example will provision a MongoDB sharded cluster with 3 shards,
+3-node replica sets in each shard, 3 config servers, and 2 mongos processes:
 	<pre class= terminal">
-	$ cf create-service mongodb-odb sharded_cluster my-sharded-db -c '{"shards": 3, "replicas": 3, "config_servers": 3, "mongos": 2}'
-	</pre>
+	$ cf create-service mongodb-odb sharded\_cluster my-sharded-db -c '{"shards": 3, "replicas": 3, "config\_servers": 3, "mongos": 2}' </pre>
 
 ##<a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager
 
@@ -100,8 +115,13 @@ To create and bind an instance of the MongoDB Enterprise Service in Apps Manager
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in.
 1. Click **Marketplace** in the left navigation.
 1. Click **MongoDB Enterprise Service**.
-1. Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan. The `standalone` plan provides a single node cluster of MongoDB, the `replica_set` plan provides a three-node cluster, and the `sharded_cluster` provides a sharded cluster with 2 shards by default (see above for different configurations). 
-1. Enter an **Instance Name** and select a space under **Add to Space**. To bind the service instance to an application, select an application under **Bind to App**.
+1. Select either the `standalone`, `replica_set`, or `sharded_cluster` service plan.
+   The `standalone` plan provides a single node cluster of MongoDB,
+   the `replica_set` plan provides a three-node cluster,
+   and the `sharded_cluster` provides a sharded cluster with 2 shards by default (see above for different configurations). 
+1. Enter an **Instance Name** and select a space under **Add to Space**.
+   To bind the service instance to an app, select an app under **Bind to App**.
 1. Click **Add**.
-  You can also bind an application to a service instance by navigating to the application page, clicking **Services**, then clicking **Bind a Service**. 
-1. Select a service instance to bind to the application and click **Bind**.
+  You can also bind an app to a service instance by navigating to the app page,
+  clicking **Services**, then clicking **Bind a Service**. 
+1. Select a service instance to bind to the app and click **Bind**.
