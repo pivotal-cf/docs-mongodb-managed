@@ -1,34 +1,64 @@
 ---
-title: MongoDB Enterprise Service for Pivotal Cloud Foundry
+title: MongoDB Enterprise Service for PCF (Beta)
 owner: Partners
 ---
 
-This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF). The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.  Those plans are integrated with MongoDB Ops Manager.  Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
+<p class="note warning">
+<strong>WARNING! </strong>
+The MongoDB Enterprise Service for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
+Do not use this product in a PCF production environment.
+</p>
+
+This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
+The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.
+Those plans are integrated with MongoDB Ops Manager.
+Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager
+or the Cloud Foundry Command Line Interface (cf CLI).
 
 ## <a id="overview"></a> Overview
 
 The MongoDB Enterprise Service for PCF has the following key features:
 
 * The ability to provision a MongoDB service instance in standalone, replica set, or sharded cluster configuration
-* Binding applications to the instance creates unique credentials for each application to access the database
+* Binding apps to the instance creates unique credentials for each app to access the database
 * Supports deployment of MongoDB Community or Enterprise server
 
 ## <a id="snapshot"></a>Product Snapshot
 
-Current Partner Tile for Pivotal Cloud Foundry Details
+The following table provides version and version-support information about 2cwMongoDB Enterprise Service for PCF:
 
-* **Version**: v0.8.0
-* **Status**: Public Beta
-* **Release Date**: December 8, 2016 
-* **Compatible Ops Manager Version(s)**: 1.8.x - 1.11.x
-* **Compatible Elastic Runtime Version(s)**: 1.8.x - 1.11.x
-* **Compatible MongoDB Version(s)**: 3.2.x, 3.4.x, community and enterprise
-* **Compatible MongoDB Ops Manager Versions(s)**: 2.0.x, 3.4.x
-* **vSphere support?** Yes
-* **AWS support?** Yes
-* **OpenStack support?** Yes
-* **Azure support?** Yes
-* **GCP support?** Yes
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Version</td>
+        <td>v0.8.0</td>
+    </tr>
+    <tr>
+        <td>Release date</td>
+        <td>July 10, 2017</td>
+    </tr>
+    <tr>
+        <td>Compatible MongoDB version(s)</td>
+        <td>v3.2.x and v3.4.x, Community and Enterprise</td>
+    </tr>
+    <tr>
+        <td>Compatible MongoDB Ops Manager version(s)</td>
+        <td>v2.0.x and v3.4.x</td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager version(s)</td>
+        <td>v1.8.x, v1.9.x, v1.10.x, and v1.11.x</td>
+    </tr>
+    <tr>
+        <td>Compatible Elastic Runtime version(s)</td>
+        <td>v1.8.x, v1.9.x, v1.10.x, and v1.11.x</td>
+    </tr>
+    <tr>
+        <td>IaaS support</td>
+        <td>AWS, Azure, GCP, OpenStack, and vSphere</td>
+    </tr>
+</table>
 
 ## <a id="reqs"></a>Requirements
 
