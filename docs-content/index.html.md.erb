@@ -1,11 +1,11 @@
 ---
-title: MongoDB Enterprise Service for PCF (Beta)
+title: MongoDB Enterprise Service for PCF
 owner: Partners
 ---
 
 This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
 The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.
-Those plans are integrated with MongoDB Ops Manager.
+Those plans are integrated with <a href="https://www.mongodb.com/products/ops-manager">MongoDB Ops Manager</a>.
 Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager
 or the Cloud Foundry Command Line Interface (cf CLI).
 
@@ -26,19 +26,19 @@ The following table provides version and version-support information about Mongo
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v0.8.4</td>
+        <td>v1.0.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>October 12, 2017</td>
+        <td>January 31, 2018</td>
     </tr>
     <tr>
         <td>Compatible MongoDB version(s)</td>
-        <td>v3.2.x and v3.4.x, Community and Enterprise</td>
+        <td>v3.2.x, v3.4.x and v3.6.x, Community and Enterprise</td>
     </tr>
     <tr>
         <td>Compatible MongoDB Ops Manager version(s)</td>
-        <td>v2.0.x and v3.4.x</td>
+        <td>v3.6.2+</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
@@ -56,7 +56,7 @@ The following table provides version and version-support information about Mongo
 
 ## <a id="reqs"></a>Requirements
 
-Before installing the MongoDB Enterprise Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys and manages a MongoDB server in your environment.
+Before installing the MongoDB Enterprise Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys, manages, monitors, and backs-up MongoDB servers in your PCF and other environments.
 
 Download MongoDB Ops Manager from [MongoDB](https://www.mongodb.com/download-center#ops-manager), and follow the [MongoDB documentation](https://docs.opsmanager.mongodb.com/current/installation/) to install it.
 
@@ -68,6 +68,7 @@ See the [License](#license) section for more information.
 The MongoDB Enterprise Service for PCF has the following limitations:
 
 * Standalone and Replica set plans are pre-configured to one and three nodes respectively.
+* Only one VM 
 * Support for creating blank MongoDB agent VMs is not available.
 
 ## <a id="feedback"></a>Feedback

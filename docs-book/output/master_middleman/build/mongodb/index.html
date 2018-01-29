@@ -8,7 +8,7 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
   <!-- Use title if it's in the page YAML frontmatter -->
   <title>
-      MongoDB Managed Service for Pivotal Cloud Foundry |
+      MongoDB Enterprise Service for PCF |
     
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,6 +154,10 @@
         <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
       </li>
 
+      <li>
+        <a href="/mongodb/release-notes.html">Release Notes</a>
+      </li>
+
     </ul>
   </div>
 </div><!--end of sub-nav-->
@@ -164,7 +168,7 @@
         <a id="top"></a>
         
           <h1 class="title-container" >
-    MongoDB Managed Service for Pivotal Cloud Foundry
+    MongoDB Enterprise Service for PCF
   </h1>
 
           <div id="js-quick-links" >
@@ -180,46 +184,76 @@
         <div class="to-top" id="js-to-top">
           <a href="#top" title="back to top"></a>
         </div>
-        <p>This documentation describes the MongoDB Managed Service for Pivotal Cloud Foundry (PCF). The MongoDB Managed Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace. Developers can provision MongoDB databases on an external MongoDB server by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).</p>
+        <p>This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
+The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.
+Those plans are integrated with <a href="https://www.mongodb.com/products/ops-manager">MongoDB Ops Manager</a>.
+Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager
+or the Cloud Foundry Command Line Interface (cf CLI).</p>
 
 <h2><a id="overview"></a> Overview</h2>
 
-<p>The MongoDB Managed Service for PCF has the following key features:</p>
+<p>The MongoDB Enterprise Service for PCF has the following key features:</p>
 
 <ul>
 <li>The ability to provision a MongoDB service instance in standalone, replica set, or sharded cluster configuration</li>
-<li>Binding applications to the instance creates unique credentials for each application to access the database</li>
+<li>Binding apps to the instance creates unique credentials for each app to access the database</li>
 <li>Supports deployment of MongoDB Community or Enterprise server</li>
 </ul>
 
 <h2><a id="snapshot"></a>Product Snapshot</h2>
 
-<p>Current Partner Tile for Pivotal Cloud Foundry Details</p>
+<p>The following table provides version and version-support information about MongoDB Enterprise Service for PCF:</p>
 
-<ul>
-<li><strong>Version</strong>: v0.1</li>
-<li><strong>Release Date</strong>: December 15, 2016 </li>
-<li><strong>Compatible Ops Manager Version(s)</strong>: 1.8.x</li>
-<li><strong>Compatible Elastic Runtime Version(s)</strong>: 1.8.x</li>
-<li><strong>vSphere support?</strong> Yes</li>
-</ul>
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Version</td>
+        <td>v1.0.0</td>
+    </tr>
+    <tr>
+        <td>Release date</td>
+        <td>January 31, 2018</td>
+    </tr>
+    <tr>
+        <td>Compatible MongoDB version(s)</td>
+        <td>v3.2.x, v3.4.x and v3.6.x, Community and Enterprise</td>
+    </tr>
+    <tr>
+        <td>Compatible MongoDB Ops Manager version(s)</td>
+        <td>v3.6.2+</td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager version(s)</td>
+        <td>v1.9.x, v1.10.x, v1.11.x and v1.12.x</td>
+    </tr>
+    <tr>
+        <td>Compatible Elastic Runtime version(s)</td>
+        <td>v1.9.x, v1.10.x, v1.11.x and v1.12.x</td>
+    </tr>
+    <tr>
+        <td>IaaS support</td>
+        <td>AWS, Azure, GCP, OpenStack, and vSphere</td>
+    </tr>
+</table>
 
 <h2><a id="reqs"></a>Requirements</h2>
 
-<p>Before installing the MongoDB Managed Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys and manages a MongoDB server in your environment.</p>
+<p>Before installing the MongoDB Enterprise Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys, manages, monitors, and backs-up MongoDB servers in your PCF and other environments.</p>
 
 <p>Download MongoDB Ops Manager from <a href="https://www.mongodb.com/download-center#ops-manager">MongoDB</a>, and follow the <a href="https://docs.opsmanager.mongodb.com/current/installation/">MongoDB documentation</a> to install it.</p>
 
-<p>For production, you must have a MongoDB subscription. See the <a href="#license">License</a> section for more information.</p>
+<p>A prerequisite for the use of Ops Manager and MongoDB Enterprise Service for PCF in production is an Enterprise Advanced Subscription that covers all MongoDB instances.
+See the <a href="#license">License</a> section for more information.</p>
 
 <h2><a id="limits"></a>Limitations</h2>
 
-<p>The MongoDB Managed Service for PCF has the following limitations:</p>
+<p>The MongoDB Enterprise Service for PCF has the following limitations:</p>
 
 <ul>
-<li>Users are limited to choosing one of three pre-configured plans.</li>
-<li>Support for creating blank MongoDB agent VMs is not available. </li>
-<li>The standalone and single-replica-set are ready for release and the sharded cluster will be available soon.</li>
+<li>Standalone and Replica set plans are pre-configured to one and three nodes respectively.</li>
+<li>Only one VM </li>
+<li>Support for creating blank MongoDB agent VMs is not available.</li>
 </ul>
 
 <h2><a id="feedback"></a>Feedback</h2>
@@ -228,7 +262,15 @@
 
 <h2><a id='license'></a>License</h2>
 
-<p>The product integrates with MongoDB Ops Manager, which requires a MongoDB subscription to run in production. You may use MongoDB Enterprise products in development without need for a subscription. Visit <a href="https://www.mongodb.com/lp/contact/mongodb-professional">MongoDB</a> for more information about MongoDB subscriptions.</p>
+<p>Before deploying MongoDB Enterprise Service for PCF in production,
+you must procure a MongoDB Enterprise Advanced Subscription for your deployment as well as MongoDB Professional Services.</p>
+
+<p>MongoDB Enterprise Advanced Subscription includes a license to run MongoDB Ops Manager,
+which integrates with MongoDB Enterprise Service for PCF.</p>
+
+<p>For more information about MongoDB Enterprise Advanced and Professional Services contact <a href="https://www.mongodb.com/lp/contact/mongodb-professional">MongoDB</a>.</p>
+
+<p>You may use MongoDB Enterprise products in development without a subscription.</p>
 
           <gcse:searchresults></gcse:searchresults>
 <a id='repo-link' href='http://github.com/docs-content/tree/master/index.html.md.erb'>View the source for this page in GitHub</a>
@@ -246,7 +288,7 @@
   <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
   <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
   <a href='/'>Pivotal Documentation</a>
-  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+  &copy; 2018 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
 </div>
 <div class="support">
   Need help? <a href="" target="_blank">Visit Support</a>

@@ -177,21 +177,98 @@
         <div class="to-top" id="js-to-top">
           <a href="#top" title="back to top"></a>
         </div>
-        <h3>0.6.9</h3>
+        <h3>v1.0.0</h3>
 
-<p><strong>Release Date</strong>: December 15, 2016</p>
+<p><strong>Release Date</strong>: January 31, 2018</p>
+
+<p>This version is the first Generally Available
+(GA) version of the MongoDB Enterprise Service for PCF.
+The release contains a number of usability and effeciency
+enhancements and represents the first in a new monthly
+update release cycle.</p>
+
+<p class="note"><strong>Note</strong>: Version 1.0.0 of the MongoDB Enterprise Service for PCF requires MongoDB Ops Manager Version 3.6.2 or greater. Before installing this version of the tile be sure to upgrade your associated MongoDB Ops Manager instance. Please see the latest <a href="https://docs.opsmanager.mongodb.com/current/tutorial/nav/upgrade-application/">Upgrade Ops Manager</a> documentation on the MongoDB documentation website. This version of the tile will fail to function properly when configured with older versions of MongoDB Ops Manager.</p>
+
+<ul>
+<li>GA version</li>
+<li>Added support for MongoDB 3.6.x</li>
+<li>Added support for MongoDB Ops Manager 3.6.2+</li>
+<li>Added ability to name MongoDB deployment during provisioning.</li>
+<li>Success status is now only updated when database is ready.</li>
+<li>MongoDB logo now appears in the PCF Apps Manager.</li>
+<li>MongoDB deployments can now be tagged and tags are integrated with MongoDB Ops Manager.</li>
+<li>Clarification of certain error messages.</li>
+<li>Added support for Post-Deply Errand to Upgrade all Service Instances.</li>
+</ul>
+
+<h3>v0.8.4</h3>
+
+<p><strong>Release Date</strong>: October 12, 2017</p>
+
+<ul>
+<li>Added auto-discovery of the latest MongoDB version</li>
+</ul>
+
+<h3>v0.8.3</h3>
+
+<p><strong>Release Date</strong>: September 7, 2017</p>
+
+<ul>
+<li>Fixed bug when persistent disk was not attached to the instance</li>
+<li>Bump On-Demand Services SDK to v0.17.0</li>
+</ul>
+
+<h3>v0.8.2</h3>
+
+<p><strong>Release Date</strong>: August 16, 2017</p>
+
+<ul>
+<li>Remove the minor version number from stemcell criteria to allow the users apply stemcell security patches</li>
+</ul>
+
+<h3>v0.8.1</h3>
+
+<p><strong>Release Date</strong>: August 9, 2017</p>
+
+<ul>
+<li>Bug fixes</li>
+<li>Support for blue-green deployments</li>
+</ul>
+
+<h3>v0.8.0</h3>
+
+<p><strong>Release Date</strong>: July 10, 2017</p>
+
+<ul>
+<li>Bug fixes</li>
+<li>The tile has been updated to support:
+
+<ul>
+<li>MongoDB v3.2.x – v3.4.x, community and enterprise</li>
+<li>MongoDB Ops Manager v2.0.x – v3.4.x</li>
+<li>PCF v1.8.x – v1.11.x</li>
+</ul></li>
+<li>The tile includes a &lsquo;sharded_cluster&rsquo; plan that provisions a cluster with two shards (three-node replica sets) by default</li>
+<li>The plans can be configured via configuration parameters to set the MongoDB version and custom sharded cluster topologies</li>
+</ul>
+
+<h3>v0.6.9</h3>
+
+<p><strong>Release Date</strong>: December 8, 2016</p>
 
 <p>Features included in the release:</p>
 
 <ul>
-<li>Open Beta</li>
-<li>The tile now deploys as a BOSH 2.0 managed service. It will deploy VMs only when a service creation is instantiated by the user. The service is configured by MongoDB Enterprise Ops Manager. </li>
+<li>Closed Beta</li>
+<li>The tile now deploys as a BOSH 2.0 managed service.
+It deploys VMs only when a service creation is instantiated by the user.
+The service is configured by MongoDB Enterprise Ops Manager.</li>
 <li>The tile offers the ability to configure two flavors of MongoDB: Standalone and Single Replica Set.</li>
 <li>The service plans deploy the following:
 
 <ul>
 <li><code>standalone</code>: Provides a single node cluster of MongoDB on the VM type selected during installation</li>
-<li><code>single_replica_set</code>: Provides a 3 node cluster of MongoDB on the VM type selected during installation</li>
+<li><code>single_replica_set</code>: Provides a three-node cluster of MongoDB on the VM type selected during installation</li>
 </ul></li>
 </ul>
 
@@ -211,7 +288,7 @@
   <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
   <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
   <a href='/'>Pivotal Documentation</a>
-  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+  &copy; 2018 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
 </div>
 <div class="support">
   Need help? <a href="" target="_blank">Visit Support</a>

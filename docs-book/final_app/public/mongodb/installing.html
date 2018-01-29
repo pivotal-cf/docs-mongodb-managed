@@ -8,7 +8,7 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
   <!-- Use title if it's in the page YAML frontmatter -->
   <title>
-      Installing and Configuring the MongoDB Managed Service for Pivotal Cloud Foundry |
+      Installing and Configuring the MongoDB Enterprise Service for PCF |
     
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,6 +154,10 @@
         <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
       </li>
 
+      <li>
+        <a href="/mongodb/release-notes.html">Release Notes</a>
+      </li>
+
     </ul>
   </div>
 </div><!--end of sub-nav-->
@@ -164,41 +168,48 @@
         <a id="top"></a>
         
           <h1 class="title-container" >
-    Installing and Configuring the MongoDB Managed Service for Pivotal Cloud Foundry
+    Installing and Configuring the MongoDB Enterprise Service for PCF
   </h1>
 
           <div id="js-quick-links" >
             <div class="quick-links"><ul>
-<li><a href="#install">Install and Configure the MongoDB Managed Service for PCF Tile</a></li>
+<li><a href="#install">Install and Configure the MongoDB Enterprise Service for PCF Tile</a></li>
 <li><a href="#troubleshoot">Troubleshooting</a></li>
 </ul></div>
           </div>
         <div class="to-top" id="js-to-top">
           <a href="#top" title="back to top"></a>
         </div>
-        <p>This topic describes how to install and configure the MongoDB Managed Service for Pivotal Cloud Foundry (PCF) tile.</p>
+        <p>This topic describes how to install and configure the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF) tile.</p>
 
-<h2><a id='install'></a> Install and Configure the MongoDB Managed Service for PCF Tile</h2>
+<h2><a id='install'></a> Install and Configure the MongoDB Enterprise Service for PCF Tile</h2>
 
 <ol>
 <li><p>Download the product file from <a href="http://network.pivotal.io">Pivotal Network</a>.</p></li>
 <li><p>Navigate to the Ops Manager Installation Dashboard and click <strong>Import a Product</strong> to upload the product file. </p></li>
-<li><p>Click <strong>Add</strong> next to the uploaded MongoDB Managed Service for PCF tile in the Ops Manager <strong>Available Products</strong> view to add it to your staging area.</p></li>
-<li><p>Click the newly added <strong>MongoDB Managed Service for PCF</strong> tile.</p></li>
+<li><p>Click <strong>Add</strong> next to the uploaded MongoDB Enterprise Service for PCF tile
+in the Ops Manager <strong>Available Products</strong> view to add it to your staging area.</p></li>
+<li><p>Click the newly added <strong>MongoDB Enterprise Service for PCF</strong> tile.</p></li>
 <li><p>Click <strong>MongoDB On-Demand</strong>.
-<img alt="Ops Man Config" src="images/config.png" /></p></li>
+<img alt="Ops Man Config" src="images/config-v0.8.0.png" /></p></li>
 <li><p>For <strong>MongoDB Ops Manager URL</strong>, enter the URL of your MongoDB Ops Manager web interface.</p></li>
-<li><p>For <strong>MongoDB Operations Manager username</strong>, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.</p></li>
+<li><p>For <strong>MongoDB Ops Manager username</strong>, enter the MongoDB Ops Manager username 
+that PCF will use to create MongoDB instances.
+The user must have sufficient permissions to create a cluster.</p></li>
 <li><p>For <strong>MongoDB Ops Manager API key</strong>, enter the key associated with your MongoDB account.</p></li>
-<li><p>For <strong>MongoDB availability zone(s)</strong>, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB. The availability zones must have an associated service network.</p></li>
+<li><p>For <strong>MongoDB availability zone(s)</strong>, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB.
+The availability zones must have an associated service network.</p></li>
 <li><p>Click <strong>Save</strong>.  </p></li>
-<li><p>Return to the Ops Manager Installation Dashboard and click <strong>Apply Changes</strong> to install the MongoDB Managed Service for PCF tile.</p></li>
-<li><p>Once the installation has finished, see the <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a> topic for more information about to create and bind MongoDB service instances.</p></li>
+<li><p>Return to the Ops Manager Installation Dashboard and click <strong>Apply Changes</strong> to install the MongoDB Enterprise Service for PCF tile.</p></li>
+<li><p>Log in to MongoDB Ops Manager and add the PCF Ops Manager IP Address to the API whitelist;
+For more information, see <a href="https://docs.opsmanager.mongodb.com/current/tutorial/configure-public-api-access/">MongoDB Ops Manager Documentation</a>.</p></li>
+<li><p>After the installation finishes, see <a href="/mongodb/binding.html">Creating and Binding MongoDB Service Instances</a>
+for how to create and bind MongoDB service instances.</p></li>
 </ol>
 
 <h2><a id="troubleshoot"></a> Troubleshooting</h2>
 
-<p>This section describes how to troubleshoot known issues when installing the MongoDB Managed Service for PCF tile.</p>
+<p>This section describes how to troubleshoot known issues when installing the MongoDB Enterprise Service for PCF tile.</p>
 
 <h3>Symptom</h3>
 
@@ -221,7 +232,8 @@
 <ul>
 <li>Ensure that MongoDB Ops Manager is running and reachable across the network.</li>
 <li>Navigate to <strong>Group Settings</strong> in MongoDB Ops Manager and ensure that <strong>Public API</strong> is enabled.</li>
-<li>Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid. If not, navigate to <strong>Group Settings</strong> in MongoDB Ops Manager and generate a new one.</li>
+<li>Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid.
+If not, navigate to <strong>Group Settings</strong> in MongoDB Ops Manager and generate a new one.</li>
 </ul>
 
           <gcse:searchresults></gcse:searchresults>
@@ -240,7 +252,7 @@
   <a href='http://pivotal.io/privacy-policy'>Privacy Policy</a> | 
   <a href='http://pivotal.io/terms-of-use'>Terms of Use</a><br/>
   <a href='/'>Pivotal Documentation</a>
-  &copy; 2016 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+  &copy; 2018 <a href='http://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
 </div>
 <div class="support">
   Need help? <a href="" target="_blank">Visit Support</a>

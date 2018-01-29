@@ -41,7 +41,7 @@ category: basics
   $teal2: #00a79d
 </div>
 */
-/* line 8, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 8, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .sg .content-layout > h1 {
   font-weight: 600;
   font-size: 1rem;
@@ -49,25 +49,25 @@ category: basics
   text-transform: uppercase;
   padding-top: 2em;
   clear: both; }
-  /* line 15, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+  /* line 15, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
   .sg .content-layout > h1:first-child {
     padding-top: 0;
     border-top: none; }
 
-/* line 20, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 20, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .codeExample {
   padding-bottom: 4rem; }
 
-/* line 23, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 23, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .codeBlock {
   clear: both; }
 
-/* line 26, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 26, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .codeBlock {
   position: relative;
   border-left: 2em solid #f8f8f8; }
 
-/* line 30, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 30, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .codeBlock .highlight:before {
   content: 'html';
   -moz-transform: rotate(-90deg);
@@ -82,22 +82,22 @@ category: basics
   padding: 0 1em;
   margin-top: 1em; }
 
-/* line 41, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 41, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .sg pre {
   margin: 0; }
 
-/* line 44, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 44, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .highlight pre {
   min-height: 5em; }
 
-/* line 47, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 47, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .exampleOutput {
   min-height: 5em;
   border: 2px solid #f0f0f0;
   padding: 1em;
   border-width: 3px 3px 0; }
 
-/* line 56, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 56, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 div[class^="swatch-"] {
   float: left;
   padding: .5em;
@@ -106,74 +106,74 @@ div[class^="swatch-"] {
   min-height: 4em;
   width: 22%; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-1 {
   background-color: #243640;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-2 {
   background-color: #424242;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-3 {
   background-color: #686868;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-4 {
   background-color: #b5b5b5;
   color: #000; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-5 {
   background-color: #eceae9;
   color: #000; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-6 {
   background-color: #f8f8f8;
   color: #000; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-7 {
   background-color: #fdfdfd;
   color: #000; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-8 {
   background-color: #2185c5;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-9 {
   background-color: #a7cae1;
   color: #000; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-10 {
   background-color: #4b6475;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-11 {
   background-color: #03786D;
   color: #fff; }
 
-/* line 66, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 66, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .swatch-12 {
   background-color: #00a79d;
   color: #fff; }
 
-/* line 70, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 70, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .sg .nav-container li {
   display: block; }
 
-/* line 74, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+/* line 74, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
 .sg .nav-container {
   display: none; }
   @media (min-width: 43.75em) {
-    /* line 74, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
+    /* line 74, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/styleguide.css.scss */
     .sg .nav-container {
       display: block; } }

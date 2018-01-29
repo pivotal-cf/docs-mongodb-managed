@@ -1,17 +1,17 @@
-/* line 1, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 1, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion {
   font: bold 14px Arial, sans-serif;
   border-top: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc; }
 
-/* line 2, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 2, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion, .grey .accordion li {
   margin: 0;
   padding: 0;
   border: none; }
 
-/* line 3, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 3, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion a {
   padding: 10px 10px 10px 50px;
   background: #ececec;
@@ -25,7 +25,7 @@
 
 /* .grey .accordion a.dcjq-parent, .grey .accordion a.dcjq-parent:hover {background: #D7D4D4 url(../images/bg_grey.png) repeat-x 0 -1px;}
 .grey .accordion a.dcjq-parent.active {} */
-/* line 6, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 6, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion a .dcjq-icon {
   position: absolute;
   top: 50%;
@@ -35,24 +35,24 @@
   height: 34px;
   background: url(../images/arrow_grey_right.png) no-repeat 0 center; }
 
-/* line 7, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 7, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion a.dcjq-parent.active .dcjq-icon {
   background: url(../images/arrow_grey_down.png) no-repeat 0 center; }
 
-/* line 8, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 8, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .grey .accordion a:hover {
   background: #fff;
   color: #990000; }
 
-/* line 11, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 11, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .accordion a.dcjq-parent:before {
   content: url(../images/plus_grey.png); }
 
-/* line 12, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 12, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .accordion a.dcjq-parent.test:before {
   content: url(../images/minus_grey.png); }
 
-/* line 13, /Users/pivotal/workspace/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
+/* line 13, /Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source/stylesheets/grey.css.scss */
 .accordion a:hover {
   background: #ffffff;
   color: #111111; }
