@@ -17,7 +17,7 @@ This topic describes how to install and configure the MongoDB Enterprise Service
 1. Click the newly added **MongoDB Enterprise Service for PCF** tile.
 
 1. Click **MongoDB On-Demand**.
-	![Ops Man Config](images/config-v0.8.0.png)
+	![Ops Man Config](images/config-v1.0.2.png)
 
 1. For **MongoDB Ops Manager URL**, enter the URL of your MongoDB Ops Manager web interface.
 
@@ -26,13 +26,31 @@ This topic describes how to install and configure the MongoDB Enterprise Service
    The user must have sufficient permissions to create a cluster.
 
 1. For **MongoDB Ops Manager API key**, enter the key associated with your MongoDB account.
+1. Optionally, enable backups through MongoDB Ops Manager by selecting
+the **Backups enabled by default** check-box.
+
+1. Add one or more **Tags** to automatically apply to each cluster
+deployed through PCF. These tag are accessable in MongoDB Ops Manager.
+They can be used to help distunguish PCF-based deployments from 
+other deployments in MongoDB Ops Manager.
 
 1. For **MongoDB availability zone(s)**, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB.
    The availability zones must have an associated service network.
 
 1. Click **Save**.  
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for PCF tile.
+1. For each of the **Service Plan** sections, configure the 
+**Small**, **Medium**, and **Large** **VM Type**'s and 
+and **disk type**'s.
+	![Service Plans Config](images/service-plans-rs-v1.0.2.png)
+
+1. Click **Save** for each.
+
+1. Optionally, configure the **Errands**, **Resource Config**, and
+**Stemcell** sections.
+
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for PCF tile and wait for the
+installation to complete.
 
 1. Log in to MongoDB Ops Manager and add the PCF Ops Manager IP Address to the API whitelist;
    For more information, see [MongoDB Ops Manager Documentation](https://docs.opsmanager.mongodb.com/current/tutorial/configure-public-api-access/).
@@ -64,3 +82,30 @@ Perform the following solutions to fix the problem:
 * Navigate to **Group Settings** in MongoDB Ops Manager and ensure that **Public API** is enabled.
 * Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid.
   If not, navigate to **Group Settings** in MongoDB Ops Manager and generate a new one.
+
+###Symptom###
+
+Undetermined error.
+
+### Explanation###
+
+Various error can occur due to misconfiguration, networking
+issue, or other problems.
+
+### Solution ###
+
+Check logs for errors.
+* From the PCF-side you can find logs in the 
+`/var/vcar/sys/log` directory.
+
+* Find the task id of your provisioning job from the 
+output of the `bosh tasks` command. You can then view logs from
+the task with the command `bosh task <TASK_ID>`.
+
+* On your Ops Manager machine, depending on your installation
+method, logs can be found in:
+
+    * For achive installs: `<ARCHIVE_DIR>/logs`
+    * For package manager installs: `/var/log/mongodb-mms`
+
+
