@@ -46,6 +46,22 @@ and **disk type**'s.
 
 1. Click **Save** for each.
 
+1. Optionally, configure the **Security** settings.
+
+This section allows you to configure TSL/SSL settings for your MongoDB deployments.
+By default, all deployments have MongoDB Authetication enabled, these settings are only required
+to support TSL/SSL communication between applications and MongoDB databases. Enter a server certificate
+and private key PEM file. These files will be places on each MongoDB virtual machine at [PATH1] and [PATH2].
+Then, enter the Certificate Authority (CA) server certificate. This will be placed [CA PATH].
+Note, these setting only configure the placement of the certificates on the provisioned machines running 
+MongoDB. In order to actually enable SSL communicate it is neccessary to complete the configuration
+in the corresponding Project Security settings in MongoDB Ops Manager. Please see [https://docs.opsmanager.mongodb.com/current/tutorial/enable-ssl-for-a-deployment/] for full detailed
+documentation on these steps. (Not directly included here as they are subject to change with new versions
+of MongoDB Ops Manager.)
+
+[TODO: Document how hostnames are created]
+[TODO: IMAGE/SCREEN shot of PCF Ops Mgr settings and corresponding MongoDB Ops Manager settings]
+
 1. Optionally, configure the **Errands**, **Resource Config**, and
 **Stemcell** sections.
 
