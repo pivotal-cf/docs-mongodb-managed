@@ -8,16 +8,19 @@ owner: Partners
 
 This incremental release of our tile contains the following:
 
-* SSL/TLS support through tile configuration. See [link to new SSL docuementation here]
-
-### v1.0.2
-
-**Release Date**: March 31, 2018
-
-This incremental release of our tile contains the following:
+* SSL/TLS support for MongoDB deployments
+<p>MongoDB deployments on PCF can now be deployed with TLS/SSL 
+enabled. A new security section has been added to the tile 
+configuration which allows setting the required 
+certificates and private keys. Please note, additional configuration
+on MongoDB Ops Manager is required to fully enable TSL/SSL connections
+to MongoDB deployments. See the official documentation on 
+[enabling SSL for a deployment]
+(https://docs.opsmanager.mongodb.com/current/tutorial/enable-ssl-for-a-deployment/) 
+for more information.
 
 * T-Shirt sizing for MongoDB deployments
-<p>The new features expands the number of service plans 
+<p>This new feature expands the number of service plans 
 available for users. PCF Operators can now define Small,
 Medium, and Large plans for each of the three deployment types
 (Standalond, Replica Set, and Sharded Cluster). Each size and
