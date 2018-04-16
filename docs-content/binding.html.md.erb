@@ -15,7 +15,7 @@ Binding instances creates unique credentials for each app to access the database
 To create and bind an instance of the MongoDB Enterprise Service with the cf CLI, perform the following steps:
 
 1. Set your API endpoint to the Cloud Controller of your deployment.
-  <pre class="terminal">
+  <pre class='terminal'>
   $ cf api api.YOUR-SYSTEM-DOMAIN
   Setting api endpoint to api.YOUR-SYSTEM-DOMAIN...
   OK
@@ -90,10 +90,10 @@ To create and bind an instance of the MongoDB Enterprise Service with the cf CLI
 ##<a id='advanced-config'></a> Advanced Configuration for MongoDB Versions and Sharded Clusters
 
 Any plan can be configured to generate any supported version of MongoDB, community and enterprise,
-by supplying the `"version"` configuration parameter to the create-service command.
+by supplying the `version` configuration parameter to the create-service command.
 For the MongoDB version, type in the actual version number, and for enterprise, add `-ent` at the end.
 For example:
-	<pre class= terminal">
+	<pre class="terminal">
 	$ cf create-service mongodb-odb standalone my-db -c '{"version": "3.4.5-ent"}' </pre>
 
 For a sharded cluster, the following configuration parameters can be supplied to determine the topology of the cluster to be provisioned:
@@ -105,7 +105,7 @@ For a sharded cluster, the following configuration parameters can be supplied to
 
 The following example will provision a MongoDB sharded cluster with 3 shards,
 3-node replica sets in each shard, 3 config servers, and 2 mongos processes:
-	<pre class= terminal">
+	<pre class="terminal">
 	$ cf create-service mongodb-odb sharded\_cluster my-sharded-db -c '{"shards": 3, "replicas": 3, "config\_servers": 3, "mongos": 2}' </pre>
 
 ##<a id='apps-man'></a> Create and Bind a Service Instance in Apps Manager
@@ -125,3 +125,51 @@ To create and bind an instance of the MongoDB Enterprise Service in Apps Manager
   You can also bind an app to a service instance by navigating to the app page,
   clicking **Services**, then clicking **Bind a Service**. 
 1. Select a service instance to bind to the app and click **Bind**.
+
+
+##<a id='arbitrary-params'></a>Service Instance Creation Parameter Reference
+
+This section provides a complete reference for all the
+parameters available when creating instances of a MongoDB service
+on PCF.
+
+* `projectName` String - Set the name of the project in MongoDB Ops Manager
+to generate for this cluster. **Note** - Currently the name 
+of the service provisioned in PCF *does not* carry over into
+MongoDB Ops Manager. A best practice is to always set this
+parameter the same as your PCF Service name. For example,
+
+	<pre class="terminal">
+	cf create-service mongodb-odb replica_set_small DemoDB123 \
+	-c '{ "projectName" : "DemoDB123", "orgId" : "5aa28bee1e6d9669e4c56a5b" }'
+	</pre>
+
+(APIs will be available in MongoDB Ops Manager 4.0 for
+organization management, at which point, it will be possible
+to specify the more human-friendly organization name rather
+than the orgId.)
+
+* `orgId` String - Unique Identifier - Set the organization id 
+in which to generate a project
+for this cluster in MongoDB Ops Manager.
+
+* `backup_enabled` - true|false - Determines if backups are enabled
+for this MongoDB deployment in MongoDB Ops Manager. Defaults to
+tile configuration setting.
+
+* `version` - String - Control which version of MongoDB to run in 
+the target cluster.
+
+* `replicas` - Integer - How many nodes in the target MongoDB
+replica Set.
+
+* `shards` - Integer - Determines how many shards to deploy
+in the target sharded cluster.
+
+* `config_servers` - Integer - Sets how many config servers to
+deploy in the target cluster.
+
+* `mongos` - Integer - Determines the number of mongos processes
+to start in a sharded cluster.
+
+
