@@ -12,7 +12,8 @@ This incremental release of our tile contains the following:
 <p>MongoDB deployments on PCF can now be deployed with TLS/SSL 
 enabled. A new security section has been added to the tile 
 configuration which allows setting the required 
-certificates and private keys. Please note, additional configuration
+certificates and private keys. This feature may be disabled
+on PCF instances which do not support Bosh DNS. Please note, additional configuration
 on MongoDB Ops Manager is required to fully enable TSL/SSL connections
 to MongoDB deployments. See the official documentation on 
 [enabling SSL for a deployment]
