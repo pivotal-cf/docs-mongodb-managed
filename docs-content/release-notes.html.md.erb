@@ -2,6 +2,26 @@
 title: Release Notes
 owner: Partners
 ---
+### v1.0.12
+**Release Date**: November 2, 2018
+
+This release of the MongoDB Enterprise Service for PCF Tile contains
+bug fixes along with the following new features:
+
+* **Enable SSL/TLS by default for all MongoDB Deployments:** A new tile-level configuration parameter is available to force all MongoDB deployments created with the tile to have SSL/TLS network connections enabled by default. This setting is available on the "MongoDB On-Demand" tab of the Tile configuration in PCF Ops Manager.
+
+* **Validate MongoDB version** The tile will now proactively validate the version of MongoDB requested for a deployment and issue an error prior to beginning the provisioning. 
+
+* **XFS** Base operating system environments targetted for MongoDB deployments will now mount data directories with the XFS filesystem. This is in line with MongoDB recommended [production notes](https://docs.mongodb.com/manual/administration/production-notes/#kernel-and-file-systems).
+
+* **Syslog** The MongoDB Tile now supports standard PCF Tile syslog aggregation for all managed resources. 
+
+* **MongoDB Ops Manager 4.0.4** The tile has been tested and certified with MongoDB Ops Manager 4.0.4.
+
+**Known Issues**:
+
+* GCP environments running PCF are not supported due to an issue with the Ubuntu Trusty stemcell series. See: [bosh/issues/1722](https://github.com/cloudfoundry/bosh/issues/1722).
+
 ### v1.0.5
 
 **Release Date**: July 5, 2018
@@ -10,7 +30,7 @@ This incremental release of our tile contains the following:
 
 * **SSL/TLS support for MongoDB deployments:** The service broker now supports fully configuring the TLS settings for a MongoDB deployment through the MongoDB Ops Manager API. This removes the need to complete TLS configuration manually through the MongoDB Ops Manager web console.
 
-* The dependency on BOSH DNS is now optional (required for SSL/TLS support). This was added to v1.0.4 but never made publically available.
+* The dependency on BOSH DNS is now optional (required for SSL/TLS support). Note, this was added to version v1.0.4 but never made publicly available.
 
 ### v1.0.3
 
@@ -34,7 +54,10 @@ The release contains a number of usability and effeciency
 enhancements and represents the first in a new monthly
 update release cycle.
 
-<p class="note"><strong>Note</strong> MongoDB Enterprise Service for PCF v1.0.1 requires MongoDB Ops Manager v3.6.2 or later. Before installing this version of the tile, upgrade your associated MongoDB Ops Manager instance. See the latest <a href="https://docs.opsmanager.mongodb.com/current/tutorial/nav/upgrade-application/">Upgrade Ops Manager</a> documentation for more information. This version of the tile does not function properly when configured with older versions of MongoDB Ops Manager.</p>
+<p class="note"><strong>Note</strong> MongoDB Enterprise Service for PCF v1.0.1 requires MongoDB Ops Manager v3.6.2 or later.
+	Before installing this version of the tile, upgrade your associated MongoDB Ops Manager instance.
+	See the latest <a href="https://docs.opsmanager.mongodb.com/current/tutorial/nav/upgrade-application/">Upgrade Ops Manager</a> documentation for more information.
+	This version of the tile does not function properly when configured with older versions of MongoDB Ops Manager.</p>
 
 * GA version
 * Added support for MongoDB 3.6.x

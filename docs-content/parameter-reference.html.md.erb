@@ -1,0 +1,50 @@
+---
+title: Tile Parameter Reference
+owner: Partners
+---
+
+This topic serves as a reference guide for the parameters available during MongoDB service provisioning. These parameters can be used with the `cfcli` tooling. 
+
+##<a id='arbitrary-params'></a>Service Instance Creation Parameter Reference
+
+This section provides a complete reference for all the
+parameters available when creating instances of a MongoDB service
+on PCF.
+
+* `projectName` String - Set the name of the project in MongoDB Ops Manager
+to generate for this cluster.
+<p class='note'><strong>Note:</strong> The name 
+of the service provisioned in PCF currently does not carry over into
+MongoDB Ops Manager. Always set this
+parameter the same as your PCF Service name. For example:
+	<pre class="terminal">
+	cf create-service mongodb-odb replica_set_small DemoDB123 \
+	-c '{ "projectName" : "DemoDB123", "orgId" : "5aa28bee1e6d9669e4c56a5b" }'
+	</pre></p>
+
+* `orgId` String - Unique Identifier - Set the organization ID 
+in which to generate a project
+for this cluster in MongoDB Ops Manager.
+
+* `backup_enabled` - true|false - Determines if backups are enabled
+for this MongoDB deployment in MongoDB Ops Manager. Defaults to
+tile configuration setting.
+
+* `version` - String - Control which version of MongoDB to run in 
+the target cluster.
+
+* `replicas` - Integer - How many nodes in the target MongoDB
+replica Set.
+
+* `shards` - Integer - Determines how many shards to deploy
+in the target sharded cluster.
+
+* `config_servers` - Integer - Sets how many config servers to
+deploy in the target cluster.
+
+* `mongos` - Integer - Determines the number of mongos processes
+to start in a sharded cluster.
+
+* `ssl_enabled` - true|false - Determines if SSL/TLS connections are enabled for this MongoDB deployment. Default controlled by tile-level setting.
+
+* `bosh_dns_disable` - true|false - Determines if Bosh DNS is disabled. False by default.
