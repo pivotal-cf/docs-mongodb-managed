@@ -5,22 +5,27 @@ owner: Partners
 ### v1.0.12
 **Release Date**: November 2, 2018
 
-This release of the MongoDB Enterprise Service for PCF Tile contains
-bug fixes along with the following new features:
+This release of the MongoDB Enterprise Service for PCF tile contains
+bug fixes and the following new features:
 
-* **Enable SSL/TLS by default for all MongoDB Deployments:** A new tile-level configuration parameter is available to force all MongoDB deployments created with the tile to have SSL/TLS network connections enabled by default. This setting is available on the "MongoDB On-Demand" tab of the Tile configuration in PCF Ops Manager.
+* **Enable SSL/TLS by default for all MongoDB deployments:** A new tile-level configuration parameter is available
+    to force all MongoDB deployments created with the tile to have SSL/TLS network connections enabled by default.
+    This setting is available on the **MongoDB On-Demand** tab of the tile configuration in PCF Ops Manager.
 
-* **Validate MongoDB version** The tile will now proactively validate the version of MongoDB requested for a deployment and issue an error prior to beginning the provisioning. 
+* **Validate MongoDB version** The tile now proactively validates the version of MongoDB requested
+    for a deployment and issues an error before beginning the provisioning. 
 
-* **XFS** Base operating system environments targetted for MongoDB deployments will now mount data directories with the XFS filesystem. This is in line with MongoDB recommended [production notes](https://docs.mongodb.com/manual/administration/production-notes/#kernel-and-file-systems).
+* **XFS** Base operating system environments targetted for MongoDB deployments now mounts data directories with the XFS filesystem.
+    This is in line with MongoDB recommended [production notes](https://docs.mongodb.com/manual/administration/production-notes/#kernel-and-file-systems).
 
-* **Syslog** The MongoDB Tile now supports standard PCF Tile syslog aggregation for all managed resources. 
+* **Syslog** The MongoDB tile now supports standard PCF tile syslog aggregation for all managed resources. 
 
 * **MongoDB Ops Manager 4.0.4** The tile has been tested and certified with MongoDB Ops Manager 4.0.4.
 
 **Known Issues**:
 
-* GCP environments running PCF are not supported due to an issue with the Ubuntu Trusty stemcell series. See: [bosh/issues/1722](https://github.com/cloudfoundry/bosh/issues/1722).
+* GCP environments running PCF are not supported due to an issue with the Ubuntu Trusty stemcell series.
+  See [bosh/issues/1722](https://github.com/cloudfoundry/bosh/issues/1722).
 
 ### v1.0.5
 
