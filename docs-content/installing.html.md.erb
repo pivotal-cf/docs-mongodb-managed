@@ -37,6 +37,11 @@ This topic describes how to install and configure the MongoDB Enterprise Service
 
 1. Click **Save** for each.
 
+1. (Optional) Configure Syslog
+You can configure syslog to send VM logs to syslog server using syslog forwarder.
+Enter address of syslog server, ort and protocol
+Optionally provide TLS certificate
+
 1. (Optional) Configure the **Security** settings.
 You can configure TSL/SSL settings for your MongoDB deployments.
 By default, all deployments have MongoDB authetication enabled. These settings are only required to support TSL/SSL communication between 
@@ -47,6 +52,10 @@ applications and MongoDB databases.
 	![SSL Config](images/ssl_config.png)
 
 1. (Optional) Configure the **Errands**, **Resource Config**, and **Stemcell** sections.
+
+1. (Optional) Resource Config 
+  Choose MongoDB tile vm size
+  Make sure that internet connectivity is checked
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for PCF tile and wait for the installation to complete.
 
@@ -88,7 +97,7 @@ Various errors can occur due to misconfiguration, networking issue, or other pro
 
 ### Solution
 
-1. Check logs for errors. From the PCF side, you can find logs in the `/var/vcar/sys/log` directory.
+1. Check logs for errors. From the PCF side, you can find logs in the `/var/vcar/sys/log` directory. Alternativly bosh log command can collect all logs for a deployment.
 
 1. Find the task ID of your provisioning job from the output of the `bosh tasks` command. You can then view logs from the task with the command `bosh task <TASK_ID>`.
 
