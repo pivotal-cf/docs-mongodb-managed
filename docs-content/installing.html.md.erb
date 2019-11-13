@@ -1,32 +1,32 @@
 ---
-title: Installing and Configuring the MongoDB Enterprise Service for Pivotal Platform 
+title: Installing and Configuring the MongoDB Enterprise Service for PCF 
 owner: Partners
 ---
 
-This topic describes how to install and configure the MongoDB Enterprise Service for Pivotal Platform tile.
+This topic describes how to install and configure the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF) tile.
 
-##<a id='install'></a> Install and Configure the MongoDB Enterprise Service for Pivotal Platform Tile
+##<a id='install'></a> Install and Configure the MongoDB Enterprise Service for PCF Tile
 
 1. Download the product file from [Pivotal Network](http://network.pivotal.io).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Click **Add** next to the uploaded MongoDB Enterprise Service for Pivotal Platform tile in the Ops Manager **Available Products** view to add it to your staging area.
+1. Click **Add** next to the uploaded MongoDB Enterprise Service for PCF tile in the Ops Manager **Available Products** view to add it to your staging area.
 
-1. Click the newly added **MongoDB Enterprise Service for Pivotal Platform** tile.
+1. Click the newly added **MongoDB Enterprise Service for PCF** tile.
 
 1. Click **MongoDB On-Demand**.
 	![Ops Man Config](images/config-v1.0.2.png)
 
 1. For **MongoDB Ops Manager URL**, enter the URL of your MongoDB Ops Manager web interface.
 
-1. For **MongoDB Ops Manager username**, enter the MongoDB Ops Manager username that Pivotal Platform will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.
+1. For **MongoDB Ops Manager username**, enter the MongoDB Ops Manager username that PCF will use to create MongoDB instances. The user must have sufficient permissions to create a cluster.
 
 1. For **MongoDB Ops Manager API key**, enter the key associated with your MongoDB account.
 
 1. (Optional) Enable backups through MongoDB Ops Manager by selecting the **Backups enabled by default** checkbox.
 
-1. Add one or more **Tags** to automatically apply to each cluster deployed through Pivotal Platform. These tag are accessable in MongoDB Ops Manager. They can be used to help distunguish Pivotal Platform-based deployments from  other deployments in MongoDB Ops Manager.
+1. Add one or more **Tags** to automatically apply to each cluster deployed through PCF. These tag are accessable in MongoDB Ops Manager. They can be used to help distunguish PCF-based deployments from  other deployments in MongoDB Ops Manager.
 
 1. For **MongoDB availability zone(s)**, select the checkboxes that correspond to the availability zones where you want to deploy MongoDB. The availability zones must have an associated service network.
 
@@ -57,19 +57,19 @@ applications and MongoDB databases.
   Choose MongoDB tile vm size
   Make sure that internet connectivity is checked
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for Pivotal Platform tile and wait for the installation to complete.
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the MongoDB Enterprise Service for PCF tile and wait for the installation to complete.
 
-1. Log in to MongoDB Ops Manager and add the Pivotal Platform Ops Manager IP address to the API whitelist. For more information, see [MongoDB Ops Manager Documentation](https://docs.opsmanager.mongodb.com/current/tutorial/configure-public-api-access/).
+1. Log in to MongoDB Ops Manager and add the PCF Ops Manager IP address to the API whitelist. For more information, see [MongoDB Ops Manager Documentation](https://docs.opsmanager.mongodb.com/current/tutorial/configure-public-api-access/).
 
 1. After the installation finishes, see [Creating and Binding MongoDB Service Instances](binding.html) for how to create and bind MongoDB service instances.
 
 ## <a id="troubleshoot"></a> Troubleshooting
 
-This section describes how to troubleshoot known issues when installing the MongoDB Enterprise Service for Pivotal Platform tile.
+This section describes how to troubleshoot known issues when installing the MongoDB Enterprise Service for PCF tile.
 
 ### Symptom
 
-MongoDB Ops Manager is not found.
+cf create-service fails with immediate error that contains: "Service broker error: could not create new group "
 
 ### Explanation
 
@@ -82,25 +82,47 @@ The problem may be produced by one of the following causes:
 ### Solution
 
 1. Ensure that MongoDB Ops Manager is running and reachable across the network.
+  * Check that the MongoDB Pps Manager url is accesable from the MongoDB Tile vm.
 
 1. Navigate to **Group Settings** in MongoDB Ops Manager and ensure that you have **Public API** enabled.
 
 1. Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid. If not, navigate to **Group Settings** in MongoDB Ops Manager and generate a new one.
 
+
 ### Symptom
 
-Undetermined error.
+cf create-service fails to deploy. cf service instance has status "create failed"
 
 ### Explanation
 
-Various errors can occur due to misconfiguration, networking issue, or other problems.
+There could be a variety of reasons why service instance fails to dpeloy. A deep dive is required to root casue an issue.
 
 ### Solution
 
-1. Check logs for errors. From the Pivotal Platform side, you can find logs in the `/var/vcar/sys/log` directory. Alternativly bosh log command can collect all logs for a deployment.
+Here are common step that will help to find an acutall issue
 
-1. Find the task ID of your provisioning job from the output of the `bosh tasks` command. You can then view logs from the task with the command `bosh task <TASK_ID>`.
+1. Run the command `cf server <service instance name>` to fetch the dashboard url.
+1. Use the dashboard url to connect to PCF Ops Manager and inspect the MongoDB cluster. 
+  * Check that all required servers have been created and are activly running. If a cluster has no servers registered, then move to step 4.
+  * Check that the MongoDB Agents are connected and report no errors. In most cases the MongoDB Agent logs help to identify root cause of an issue. If the MongoDB Agents did nto connect, then move to Step 4
+  * If the cluster is properly configured but can not reach its "Goal State", inspect BOSH logs for VM level errors.
+1. Should MongoDB Ops Manager not register and/or servers in a cluster a not reach their "Goal State", then VM level Logs must be inspected
+1. Collect BOSH logs with bosh logs command from MongoDB support or get them from log collection pipeline, when configured.
+  * Logs from MongoDB tile VM to find out early stage errors
+  * Logs from Server Instances can pin point environmental type errors.
 
-1. On your Ops Manager machine, depending on your installation method, logs can be found for archive installs and package manager installs:
-    * For archive installs: `<ARCHIVE_DIR>/logs`
-    * For package manager installs: `/var/log/mongodb-mms`
+
+
+### Symptom
+
+Following Error appears in Tile logs
+ERROR: Configuration was not applied! 
+
+### Explanation
+
+When a cluster configuration has been modified outside of Tile the configuration, it may lead to issues with Tile Upgrades. Some configurations performed manully can not be reverted back or are not supported by PCF Tile.
+In this case the PCF Ops Manager cluster configuration will take priority as it will guarantee no downtime of a deployment.
+
+### Solution
+
+We expect to improve error handling in our following releases to make it clear when a configuration is dessyncronized.
