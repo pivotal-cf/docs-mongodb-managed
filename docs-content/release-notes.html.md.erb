@@ -2,6 +2,15 @@
 title: Release Notes
 owner: Partners
 ---
+### v1.1.3
+
+**Release Date**: November 13, 2019
+
+* Fixing issue with MongoDB Agent write permissions to local volumes that prevent automated update.
+* Removing quota limit of 10 sharded cluster deployments. 
+* OSB Binding command includes url parameter that contains sample of a connection string. Note: Connection string should be built separately to ensure correct connection for each individual case.
+* Added additional error resolution for Service Instance upgrade. When MongoDB cluster configuration cannot be modified by Tile, Ops Manager will revert it to a latest known working configuration in order to avoid service downtime.  
+
 
 ### v1.1.1
 

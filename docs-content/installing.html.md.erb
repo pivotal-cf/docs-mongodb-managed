@@ -63,13 +63,14 @@ applications and MongoDB databases.
 
 1. After the installation finishes, see [Creating and Binding MongoDB Service Instances](binding.html) for how to create and bind MongoDB service instances.
 
+
 ## <a id="troubleshoot"></a> Troubleshooting
 
 This section describes how to troubleshoot known issues when installing the MongoDB Enterprise Service for Pivotal Platform tile.
 
 ### Symptom
 
-MongoDB Ops Manager is not found.
+cf create-service fails with immediate error that contains: "Service broker error: could not create new group "
 
 ### Explanation
 
@@ -82,25 +83,48 @@ The problem may be produced by one of the following causes:
 ### Solution
 
 1. Ensure that MongoDB Ops Manager is running and reachable across the network.
+  * check that ops Manager url is accessible form MongoDB Tile vm.
 
 1. Navigate to **Group Settings** in MongoDB Ops Manager and ensure that you have **Public API** enabled.
 
 1. Ensure that the MongoDB Ops Manager API key you provided when configuring the tile is valid. If not, navigate to **Group Settings** in MongoDB Ops Manager and generate a new one.
 
+
 ### Symptom
 
-Undetermined error.
+cf create-service fails to deploy. cf service instance has status "create failed"
 
 ### Explanation
 
-Various errors can occur due to misconfiguration, networking issue, or other problems.
+There could be a variety of reasons why service instance fails to deploy. A deep dive is required to root cause an issue.
 
 ### Solution
 
-1. Check logs for errors. From the Pivotal Platform side, you can find logs in the `/var/vcar/sys/log` directory. Alternativly bosh log command can collect all logs for a deployment.
+Here are common steps that will help to find an actual issue.
 
-1. Find the task ID of your provisioning job from the output of the `bosh tasks` command. You can then view logs from the task with the command `bosh task <TASK_ID>`.
+1. Run command cf server <service instance name>  and get dashboard url
+1. Use dashboard url to connect to Ops Manager and inspect MongoDB cluster. 
+  * Check that all requires servers has been created and are active. If a cluster has no servers registered, then move to step 4.
+  * Check that MongoDB Agents are connected and report no errors. In most cases MongoDB Agent logs help to identify root cause of an issue. If MongoDB Agents did not connect, then move to Step 4
+  * If cluster is properly configured but cannot reach its "Goal State", please inspect BOSH logs for VM level errors
+1. In case when MongoDB Ops Manager does not register and servers in a cluster a VM level Logs must be inspected
+1. Collect BOSH logs with bosh logs command from Mongo or get them from log collection pipeline, when configured.
+  * Logs from MongoDB tile VM to find out early stage errors
+  * Logs from Server Instances can pin point environmental type errors.
 
-1. On your Ops Manager machine, depending on your installation method, logs can be found for archive installs and package manager installs:
-    * For archive installs: `<ARCHIVE_DIR>/logs`
-    * For package manager installs: `/var/log/mongodb-mms`
+
+
+### Symptom
+
+Following Error appears in Tile logs
+ERROR: Configuration was not applied! 
+
+### Explanation
+
+When cluster configuration has been modified outside of Tile configuration, it may lead to issues with Tile Upgrade. Some configurations performed manually cannot be reverted back or not supported by Pivotal Platform Tile.
+In this case Ops Manager cluster configuration will take priority as it will guarantee no downtime of a deployment.
+
+
+### Solution
+
+We expect to improve error handling in our following releases to make it clear when configuration is desynchronized.
