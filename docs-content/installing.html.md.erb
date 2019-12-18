@@ -63,6 +63,7 @@ applications and MongoDB databases.
 
 1. After the installation finishes, see [Creating and Binding MongoDB Service Instances](binding.html) for how to create and bind MongoDB service instances.
 
+
 ## <a id="troubleshoot"></a> Troubleshooting
 
 This section describes how to troubleshoot known issues when installing the MongoDB Enterprise Service for PCF tile.
@@ -82,7 +83,8 @@ The problem may be produced by one of the following causes:
 ### Solution
 
 1. Ensure that MongoDB Ops Manager is running and reachable across the network.
-  * Check that the MongoDB Pps Manager url is accesable from the MongoDB Tile vm.
+  * Check that the MongoDB Ops Manager url is accesable from the MongoDB Tile vm.
+
 
 1. Navigate to **Group Settings** in MongoDB Ops Manager and ensure that you have **Public API** enabled.
 
@@ -95,19 +97,20 @@ cf create-service fails to deploy. cf service instance has status "create failed
 
 ### Explanation
 
-There could be a variety of reasons why service instance fails to dpeloy. A deep dive is required to root casue an issue.
+
+There could be a variety of reasons why service instance fails to deploy. A deep dive is required to root cause an issue.
 
 ### Solution
 
-Here are common step that will help to find an acutall issue
+Here are common steps that will help to find an actual issue.
 
-1. Run the command `cf server <service instance name>` to fetch the dashboard url.
-1. Use the dashboard url to connect to PCF Ops Manager and inspect the MongoDB cluster. 
-  * Check that all required servers have been created and are activly running. If a cluster has no servers registered, then move to step 4.
-  * Check that the MongoDB Agents are connected and report no errors. In most cases the MongoDB Agent logs help to identify root cause of an issue. If the MongoDB Agents did nto connect, then move to Step 4
-  * If the cluster is properly configured but can not reach its "Goal State", inspect BOSH logs for VM level errors.
-1. Should MongoDB Ops Manager not register and/or servers in a cluster a not reach their "Goal State", then VM level Logs must be inspected
-1. Collect BOSH logs with bosh logs command from MongoDB support or get them from log collection pipeline, when configured.
+1. Run command cf server <service instance name>  and get dashboard url
+1. Use dashboard url to connect to Ops Manager and inspect MongoDB cluster. 
+  * Check that all requires servers has been created and are active. If a cluster has no servers registered, then move to step 4.
+  * Check that MongoDB Agents are connected and report no errors. In most cases MongoDB Agent logs help to identify root cause of an issue. If MongoDB Agents did not connect, then move to Step 4
+  * If cluster is properly configured but cannot reach its "Goal State", please inspect BOSH logs for VM level errors
+1. In case when MongoDB Ops Manager does not register and servers in a cluster a VM level Logs must be inspected
+1. Collect BOSH logs with bosh logs command from Mongo or get them from log collection pipeline, when configured.
   * Logs from MongoDB tile VM to find out early stage errors
   * Logs from Server Instances can pin point environmental type errors.
 
@@ -120,9 +123,11 @@ ERROR: Configuration was not applied!
 
 ### Explanation
 
-When a cluster configuration has been modified outside of Tile the configuration, it may lead to issues with Tile Upgrades. Some configurations performed manully can not be reverted back or are not supported by PCF Tile.
-In this case the PCF Ops Manager cluster configuration will take priority as it will guarantee no downtime of a deployment.
+
+When cluster configuration has been modified outside of Tile configuration, it may lead to issues with Tile Upgrade. Some configurations performed manually cannot be reverted back or not supported by Pivotal Platform Tile.
+In this case Ops Manager cluster configuration will take priority as it will guarantee no downtime of a deployment.
+
 
 ### Solution
 
-We expect to improve error handling in our following releases to make it clear when a configuration is dessyncronized.
+We expect to improve error handling in our following releases to make it clear when configuration is desynchronized.

@@ -6,10 +6,11 @@ owner: Partners
 
 **Release Date**: November 13, 2019
 
-* Fixed an issue with MongoDB Agent access to local volumes that prevent automated update.
-* Removed quota of 10 sharded cluster deployments. It is now unlimited.
-* The OSB Binding command includes a url parameter that contains sample of a connection string. Note: Connection string should be built separatelly to ensure correct connection for each idividual case.
-* Added additional error resolution for Service Instance upgrade. When the MongoDB cluster configuration can not be modified by Tile, Ops Manager will rever to latet known workin configuration in order to avoid service downtime.  
+
+* Fixing issue with MongoDB Agent write permissions to local volumes that prevent automated update.
+* Removing quota limit of 10 sharded cluster deployments. 
+* OSB Binding command includes url parameter that contains sample of a connection string. Note: Connection string should be built separately to ensure correct connection for each individual case.
+* Added additional error resolution for Service Instance upgrade. When MongoDB cluster configuration cannot be modified by Tile, Ops Manager will revert it to a latest known working configuration in order to avoid service downtime.  
 
 
 ### v1.1.1
