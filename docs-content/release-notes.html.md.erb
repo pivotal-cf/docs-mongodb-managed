@@ -2,9 +2,16 @@
 title: Release Notes
 owner: Partners
 ---
+### v1.2.1
+
+**Release Date**: January 15, 2020
+
+* Fixed the name of a Bosh Release item to not collide with other tiles. The recent enhancement with PCF 2.7 and BPM support introduced new components to the MongoDB Tile of which a `bosh` release name collision could occur. This has been corrected in this release.
+* Updated Bosh On-Demand Service Broker to v0.34.1 which contains update to Go language to address several CVEs.  
+
 ### v1.2
 
-**Release Date**: December 20, 2020
+**Release Date**: December 20, 2019
 
 * The tile has been updated so that automation agent processes on MongoDB vms are now monitored by `monit` rather than `monit` monitoring the `mongod` processes directly. Operators should expect the corresponding changes in the monitoring reports from vms.
 * Updated and ehananced MongoDB deployement configuration merging and management between the PCF Service Broker and MongoDB Ops Manager.
