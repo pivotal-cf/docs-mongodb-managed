@@ -4,13 +4,14 @@ owner: Partners
 ---
 ### v1.2.3
 
-**Release Date**: January 27, 2020
-
-* Fixed a sporadic issue where mis-formatted strings could be generated and rejected by the MongoDB Ops Mgr Api.
+**Release Date**: January 31, 2020
+* Patched name generation for MongoDB Ops Manager projects and organizations to respect proper formatting.
+* Fixed an issue where existing MongoDB Ops Manager projects we're unable to upgrade.
+* Updates and enhancements to CI/CD pipelines.
 
 ### v1.2.2
 
-**Release Date**: January 14, 2020
+**Release Date**: January 15, 2020
 
 * Fixed the name of a Bosh Release item to not collide with other tiles. The recent enhancement with PCF 2.7 and BPM support introduced new components to the MongoDB Tile of which a `bosh` release name collision could occur. This has been corrected in this release.
 * Updated Bosh On-Demand Service Broker to v0.34.1 which contains update to Go language to address several CVEs.  
