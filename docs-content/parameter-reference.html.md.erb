@@ -26,10 +26,6 @@ parameter the same as your Pivotal Platform Service name. For example:
 in which to generate a project
 for this cluster in MongoDB Ops Manager.
 
-* `backup_enabled` - true|false - Determines if backups are enabled
-for this MongoDB deployment in MongoDB Ops Manager. Defaults to
-tile configuration setting.
-
 * `version` - String - Control which version of MongoDB to run in 
 the target cluster.
 
@@ -48,3 +44,5 @@ to start in a sharded cluster.
 * `ssl_enabled` - true|false - Determines if SSL/TLS connections are enabled for this MongoDB deployment. Default controlled by tile-level setting.
 
 * `bosh_dns_disable` - true|false - Determines if Bosh DNS is disabled. False by default. Pivotal Platform 2.5 this option should not be used. It will be depricated next release. 
+
+<p class='note'><strong>Note:</strong> MongoDB services do not support CF update service command `cf update-service`
