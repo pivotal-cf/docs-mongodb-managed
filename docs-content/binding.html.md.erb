@@ -3,9 +3,9 @@ title: Creating and Binding MongoDB Service Instances
 owner: Partners
 ---
 
-This topic describes how developers create and bind instances of the MongoDB Enterprise Service for Pivotal Platform.
+This topic describes how developers create and bind instances of the MongoDB Enterprise Service for VMware Tanzu.
 
-After deploying the MongoDB Enterprise Service for Pivotal Platform tile, the MongoDB Enterprise Service appears in the Marketplace.
+After deploying the MongoDB Enterprise Service for VMware Tanzu tile, the MongoDB Enterprise Service appears in the Marketplace.
 Developers can use either the Cloud Foundry Command Line Interface (cf CLI) or
 Apps Manager to create an instance of the service and bind it to apps.
 Binding instances creates unique credentials for each app to access the database.
@@ -130,14 +130,14 @@ To create and bind an instance of the MongoDB Enterprise Service in Apps Manager
 
 This section provides a complete reference for all the
 parameters available when creating instances of a MongoDB service
-on Pivotal Platform.
+on VMware Tanzu.
 
 * `projectName` String - Set the name of the project in MongoDB Ops Manager
 to generate for this cluster.
 <p class='note'><strong>Note:</strong> The name 
-of the service provisioned in Pivotal Platform currently does not carry over into
+of the service provisioned in VMware Tanzu currently does not carry over into
 MongoDB Ops Manager. Always set this
-parameter the same as your Pivotal Platform Service name. For example:
+parameter the same as your VMware Tanzu Service name. For example:
 	<pre class="terminal">
 	cf create-service mongodb-odb replica_set_small DemoDB123 \
 	-c '{ "projectName" : "DemoDB123", "orgId" : "5aa28bee1e6d9669e4c56a5b" }'
