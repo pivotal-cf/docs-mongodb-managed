@@ -1,17 +1,17 @@
 ---
-title: MongoDB Enterprise Service for PCF
+title: MongoDB Enterprise Service for VMware Tanzu
 owner: Partners
 ---
 
-This documentation describes the MongoDB Enterprise Service for Pivotal Cloud Foundry (PCF).
-The MongoDB Enterprise Service for PCF tile registers a service broker on PCF and exposes its service plans on the Marketplace.
+This documentation describes the MongoDB Enterprise Service for VMware Tanzu (VMware Tanzu).
+The MongoDB Enterprise Service for VMware Tanzu tile registers a service broker on VMware Tanzu and exposes its service plans on the Marketplace.
 Those plans are integrated with <a href="https://www.mongodb.com/products/ops-manager">MongoDB Ops Manager</a>.
 Developers can provision MongoDB databases by creating instances of the service plans using Apps Manager
 or the Cloud Foundry Command Line Interface (cf CLI).
 
 ## <a id="overview"></a> Overview
 
-The MongoDB Enterprise Service for PCF has the following key features:
+The MongoDB Enterprise Service for VMware Tanzu has the following key features:
 
 * The ability to provision a MongoDB service instance in standalone, replica set, or sharded cluster configuration
 * Binding apps to the instance creates unique credentials for each app to access the database
@@ -19,7 +19,7 @@ The MongoDB Enterprise Service for PCF has the following key features:
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about MongoDB Enterprise Service for PCF:
+The following table provides version and version-support information about MongoDB Enterprise Service for VMware Tanzu:
 
 <table class="nice">
     <th>Element</th>
@@ -45,7 +45,7 @@ The following table provides version and version-support information about Mongo
         <td>2.6.x and 2.7.x</td>
     </tr>
     <tr>
-        <td>Compatible Pivotal Application Service version(s)</td>
+        <td>Compatible VMware Tanzu Application Service for VMs version(s)</td>
         <td>2.6.x, and 2.7.x</td>
     </tr>
     <tr>
@@ -56,44 +56,44 @@ The following table provides version and version-support information about Mongo
 
 
 <p class="note warning"><strong> WARNING:</strong>
-If you are interested in using the MongoDB Enterprise Service for PCF 
+If you are interested in using the MongoDB Enterprise Service for VMware Tanzu 
 please contact MongoDB Technical support team for the latest updates 
-and ensure the best experience with PCF and MongoDB. 
+and ensure the best experience with VMware Tanzu and MongoDB. 
 <a href="https://support.mongodb.com">MongoDB Support</a>
 </p>
 
 ## <a id="reqs"></a>Requirements
 
-Before installing the MongoDB Enterprise Service for PCF tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys, manages, monitors, and backs up MongoDB servers in your PCF and other environments.
-The tile integrates your PCF environment with MongoDB Ops Manager through published REST APIs.
+Before installing the MongoDB Enterprise Service for VMware Tanzu tile, you must download and install a licensed copy of MongoDB Ops Manager. MongoDB Ops Manager deploys, manages, monitors, and backs up MongoDB servers in your VMware Tanzu and other environments.
+The tile integrates your VMware Tanzu environment with MongoDB Ops Manager through published REST APIs.
 
 Download MongoDB Ops Manager from [MongoDB](https://www.mongodb.com/download-center#ops-manager), and follow the [MongoDB documentation](https://docs.opsmanager.mongodb.com/current/installation/) to install it.
 
-MongoDB Ops Manager is not istalled by the Pivotal Platform Tile and must be provisioned outside of Pivotal Platform Cluster.
+MongoDB Ops Manager is not istalled by the VMware Tanzu Tile and must be provisioned outside of VMware Tanzu Cluster.
 
-A prerequisite for the use of Ops Manager and MongoDB Enterprise Service for PCF in production is an Enterprise Advanced Subscription that covers all MongoDB instances.
+A prerequisite for the use of Ops Manager and MongoDB Enterprise Service for VMware Tanzu in production is an Enterprise Advanced Subscription that covers all MongoDB instances.
 See the [License](#license) section for more information.
 
 ## <a id="limits"></a>Limitations
 
-The MongoDB Enterprise Service for PCF has the following limitations:
+The MongoDB Enterprise Service for VMware Tanzu has the following limitations:
 
 * Standalone and Replica set plans are pre-configured to one and three nodes respectively.
 * It uses only one stemcell.
 * Support for creating blank MongoDB agent VMs is not available.
 
-* MongoDB Ops Manager functionality and features are limited when used with MongoDB Pivotal Platform Tile. 
+* MongoDB Ops Manager functionality and features are limited when used with MongoDB VMware Tanzu Tile. 
 
 ## <a id="feedback"></a>Feedback
 
-Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list.
+Please provide any bugs, feature requests, or questions to the [VMware Tanzu Feedback](mailto:pivotal-cf-feedback@pivotal.io) list.
 
 ## <a id='license'></a>License
-Before deploying MongoDB Enterprise Service for PCF in production,
+Before deploying MongoDB Enterprise Service for VMware Tanzu in production,
 you must procure a MongoDB Enterprise Advanced Subscription for your deployment as well as MongoDB Professional Services.
 
 MongoDB Enterprise Advanced Subscription includes a license to run MongoDB Ops Manager,
-which integrates with MongoDB Enterprise Service for PCF.
+which integrates with MongoDB Enterprise Service for VMware Tanzu.
 
 For more information about MongoDB Enterprise Advanced and Professional Services contact [MongoDB](https://www.mongodb.com/lp/contact/mongodb-professional).
 

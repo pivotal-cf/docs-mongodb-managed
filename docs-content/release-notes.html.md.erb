@@ -5,6 +5,7 @@ owner: Partners
 ### v1.2.3
 
 **Release Date**: January 31, 2020
+
 * Patched name generation for MongoDB Ops Manager projects and organizations to respect proper formatting.
 * Fixed an issue where existing MongoDB Ops Manager projects we're unable to upgrade.
 * Updates and enhancements to CI/CD pipelines.
@@ -13,7 +14,7 @@ owner: Partners
 
 **Release Date**: January 15, 2020
 
-* Fixed the name of a Bosh Release item to not collide with other tiles. The recent enhancement with PCF 2.7 and BPM support introduced new components to the MongoDB Tile of which a `bosh` release name collision could occur. This has been corrected in this release.
+* Fixed the name of a Bosh Release item to not collide with other tiles. The recent enhancement with VMware Tanzu 2.7 and BPM support introduced new components to the MongoDB Tile of which a `bosh` release name collision could occur. This has been corrected in this release.
 * Updated Bosh On-Demand Service Broker to v0.34.1 which contains update to Go language to address several CVEs.  
 
 ### v1.2
@@ -21,8 +22,8 @@ owner: Partners
 **Release Date**: December 20, 2019
 
 * The tile has been updated so that automation agent processes on MongoDB vms are now monitored by `monit` rather than `monit` monitoring the `mongod` processes directly. Operators should expect the corresponding changes in the monitoring reports from vms.
-* Updated and ehananced MongoDB deployement configuration merging and management between the PCF Service Broker and MongoDB Ops Manager.
-* Added support for PCF 2.7
+* Updated and ehananced MongoDB deployement configuration merging and management between the VMware Tanzu Service Broker and MongoDB Ops Manager.
+* Added support for VMware Tanzu 2.7
 * Additional various bug fixes
 
 ### v1.1.3
@@ -40,7 +41,7 @@ owner: Partners
 
 **Release Date**: July 11, 2019
 
-* Introducing support for PCF 2.6
+* Introducing support for VMware Tanzu 2.6
 * Fixing an issue with backup configration in OpsManager.
 * Upgrade from v1.1.0 would perform a rolling upgrade of MongoDB service instances. 
 
@@ -48,7 +49,7 @@ owner: Partners
 
 **Release Date**: July 4, 2019
 
-* Introducing support for PCF 2.5
+* Introducing support for VMware Tanzu 2.5
 * Fixing an issue with MongoDB Ops Manager 4.0 automation config syncronization where any changes to Ops Manager would prevent update of Service Instances. 
 
 ### v1.0.33
@@ -67,12 +68,12 @@ owner: Partners
 ### v1.0.31
 **Release Date**: January 17, 2019
 
-* This release of MongoDB Enterprise Service for PCF contains a fix for an incorrect spec of the BPM library version inside the tile definition when upgrading to v1.0.28
+* This release of MongoDB Enterprise Service for VMware Tanzu contains a fix for an incorrect spec of the BPM library version inside the tile definition when upgrading to v1.0.28
 
 ### v1.0.28
 **Release Date**: December 14, 2018
 
-This release of the MongoDB Enterprise Service for PCF tile contains
+This release of the MongoDB Enterprise Service for VMware Tanzu tile contains
 bug fixes and the following new features:
 
 * Bug fix for upgrade all errand when upgrading from v1.0.5 to v1.0.28
@@ -81,12 +82,12 @@ bug fixes and the following new features:
 ### v1.0.12
 **Release Date**: November 2, 2018
 
-This release of the MongoDB Enterprise Service for PCF tile contains
+This release of the MongoDB Enterprise Service for VMware Tanzu tile contains
 bug fixes and the following new features:
 
 * **Enable SSL/TLS by default for all MongoDB deployments:** A new tile-level configuration parameter is available
     to force all MongoDB deployments created with the tile to have SSL/TLS network connections enabled by default.
-    This setting is available on the **MongoDB On-Demand** tab of the tile configuration in PCF Ops Manager.
+    This setting is available on the **MongoDB On-Demand** tab of the tile configuration in VMware Tanzu Ops Manager.
 
 * **Validate MongoDB version** The tile now proactively validates the version of MongoDB requested
     for a deployment and issues an error before beginning the provisioning. 
@@ -94,13 +95,13 @@ bug fixes and the following new features:
 * **XFS** Base operating system environments targetted for MongoDB deployments now mounts data directories with the XFS filesystem.
     This is in line with MongoDB recommended [production notes](https://docs.mongodb.com/manual/administration/production-notes/#kernel-and-file-systems).
 
-* **Syslog** The MongoDB tile now supports standard PCF tile syslog aggregation for all managed resources. 
+* **Syslog** The MongoDB tile now supports standard VMware Tanzu tile syslog aggregation for all managed resources. 
 
 * **MongoDB Ops Manager 4.0.4** The tile has been tested and certified with MongoDB Ops Manager 4.0.4.
 
 **Known Issues**:
 
-* GCP environments running PCF are not supported due to an issue with the Ubuntu Trusty stemcell series.
+* GCP environments running VMware Tanzu are not supported due to an issue with the Ubuntu Trusty stemcell series.
   See [bosh/issues/1722](https://github.com/cloudfoundry/bosh/issues/1722).
 
 ### v1.0.5
@@ -119,9 +120,9 @@ This incremental release of our tile contains the following:
 
 This incremental release of our tile contains the following:
 
-* **SSL/TLS support for MongoDB deployments:** You can now deploy MongoDB on PCF with TLS/SSL enabled. A new security section has been added to the tile configuration which allows setting the required certificates and private keys. Additional configuration on MongoDB Ops Manager is required to fully enable TSL/SSL connections to MongoDB deployments. See [Enabling SSL for a Deployment](https://docs.opsmanager.mongodb.com/current/tutorial/enable-ssl-for-a-deployment/) for more information.
+* **SSL/TLS support for MongoDB deployments:** You can now deploy MongoDB on VMware Tanzu with TLS/SSL enabled. A new security section has been added to the tile configuration which allows setting the required certificates and private keys. Additional configuration on MongoDB Ops Manager is required to fully enable TSL/SSL connections to MongoDB deployments. See [Enabling SSL for a Deployment](https://docs.opsmanager.mongodb.com/current/tutorial/enable-ssl-for-a-deployment/) for more information.
 
-* **T-shirt sizing for MongoDB deployments:** This new feature expands the number of service plans available for users. PCF operators can now define Small, Medium, and Large plans for each of the three deployment types (Standalone, Replica Set, and Sharded Cluster). Each size and cluster-type pair allows a choice of both VM-type and storage disk type.</p>
+* **T-shirt sizing for MongoDB deployments:** This new feature expands the number of service plans available for users. VMware Tanzu operators can now define Small, Medium, and Large plans for each of the three deployment types (Standalone, Replica Set, and Sharded Cluster). Each size and cluster-type pair allows a choice of both VM-type and storage disk type.</p>
 
 * **Automatically enable backups for MongoDB clusters foundry-wide:** The tile configuration allows you to enable backups by default for all MongoDB clusters provisioned. This setting does not effect existing clusters. For those, use MongoDB Ops Manager to configure backups.
 
@@ -130,12 +131,12 @@ This incremental release of our tile contains the following:
 **Release Date**: January 31, 2018
 
 This version is the first Generally Available
-(GA) version of the MongoDB Enterprise Service for PCF.
+(GA) version of the MongoDB Enterprise Service for VMware Tanzu.
 The release contains a number of usability and effeciency
 enhancements and represents the first in a new monthly
 update release cycle.
 
-<p class="note"><strong>Note</strong> MongoDB Enterprise Service for PCF v1.0.1 requires MongoDB Ops Manager v3.6.2 or later.
+<p class="note"><strong>Note</strong> MongoDB Enterprise Service for VMware Tanzu v1.0.1 requires MongoDB Ops Manager v3.6.2 or later.
 	Before installing this version of the tile, upgrade your associated MongoDB Ops Manager instance.
 	See the latest <a href="https://docs.opsmanager.mongodb.com/current/tutorial/nav/upgrade-application/">Upgrade Ops Manager</a> documentation for more information.
 	This version of the tile does not function properly when configured with older versions of MongoDB Ops Manager.</p>
@@ -145,7 +146,7 @@ update release cycle.
 * Added support for MongoDB Ops Manager 3.6.2+
 * Added ability to name MongoDB deployment during provisioning.
 * Success status is now only updated when database is ready.
-* MongoDB logo now appears in the PCF Apps Manager.
+* MongoDB logo now appears in the VMware Tanzu Apps Manager.
 * MongoDB deployments can now be tagged and tags are integrated with MongoDB Ops Manager.
 * Clarification of certain error messages.
 * Added support for Post-Deply Errand to Upgrade all Service Instances.
@@ -185,7 +186,7 @@ update release cycle.
 * The tile has been updated to support:
 	* MongoDB v3.2.x – v3.4.x, community and enterprise
 	* MongoDB Ops Manager v2.0.x – v3.4.x
-	* PCF v1.8.x – v1.11.x
+	* VMware Tanzu v1.8.x – v1.11.x
 * The tile includes a 'sharded_cluster' plan that provisions a cluster with two shards (three-node replica sets) by default.
 * The plans can be configured via configuration parameters to set the MongoDB version and custom sharded cluster topologies.
 
