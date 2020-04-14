@@ -24,3 +24,4 @@ template_variables:                             # optional
 book_title: Partner Services Template
 book_repo: docs-book
 layout_repo: docs-layout
+content_repo: docs-content

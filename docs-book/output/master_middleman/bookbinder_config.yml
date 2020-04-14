@@ -5,9 +5,9 @@
 :subnav_templates:
   mongodb: pivotal_mongodb_service_subnav
 :template_variables: 
-:local_repo_dir: "/Users/jmimick/work/docs-mongodb-managed"
+:local_repo_dir: "/workspace"
 :workspace: !ruby/object:Pathname
-  path: "/Users/jmimick/work/docs-mongodb-managed/docs-book/output/master_middleman/source"
+  path: "/workspace/docs-book/output/master_middleman/source"
 :feedback_enabled: 
 :repo_link_enabled: true
 :repo_links:
@@ -18,3 +18,4 @@
 :product_info:
   mongodb: {}
 :elastic_search: false
+:proof: false

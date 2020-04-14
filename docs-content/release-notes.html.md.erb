@@ -2,7 +2,27 @@
 title: Release Notes
 owner: Partners
 ---
-### v1.2.3
+### v1.2.5
+
+**Release Date**: April 17, 2020
+
+<p class="note warning"><strong>DEPRECATION WARNING:</strong>
+The MongoDB Entperise Service for VMware Tanzu will only be supported in production environments until September 1, 2020. We strongly discourge the adoption of this tile for any new or existing projects. There are 2 officially endorsed go-forward options for users.
+
+Learn more on the <a href="tombstone.html">MongoDB Enterprise Service Deprecation</a> information page and
+Please contact the team at 
+<a href="https://support.mongodb.com">MongoDB Support</a>
+with any questions.
+</p>
+
+* Added support for VMware PCF 2.8
+* Added support for MongoDB Ops Manager 4.2
+* Fixed multiple issues in which the Config Agent wasn't able to synchronize automation agent configuration upon startup and during upgrades.
+* Fixed in issue where the unbind operation for a service binding was failing.
+* Exposed `max_in_flight` and `canaries` parameters in tile configration.
+
+
+### v1.2.4
 
 **Release Date**: January 31, 2020
 
@@ -10,7 +30,7 @@ owner: Partners
 * Fixed an issue where existing MongoDB Ops Manager projects we're unable to upgrade.
 * Updates and enhancements to CI/CD pipelines.
 
-### v1.2.2
+### v1.2.3
 
 **Release Date**: January 15, 2020
 
