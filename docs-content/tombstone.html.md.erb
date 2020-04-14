@@ -1,0 +1,47 @@
+---
+title: MongoDB Enterprise Service for VMware Tanzu Deprecation
+owner: Partners
+---
+
+<i>Product Announcement and Update April 15, 2020</i>
+
+<p>Since VMware’s acquisition of Pivotal, it’s become clear that the future of data infrastructure deployment and management on the Cloud Foundry platform will be built around Kubernetes. 
+
+<p>Given this direction, we are deprecating the MongoDB Enterprise Server for Pivotal Cloud Foundry (PCF) tile in favor of using either cloud or Kubernetes based orchestration platforms, such as MongoDB Atlas and VMware Container Service (PKS). 
+<p><a href="cloud.mongodb.com">MongoDB Atlas</a> is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice (AWS, Azure, and GCP). 
+
+<p>PKS is VMware’s enterprise Kubernetes platform, built for rapid results, scaling, and reliability on any infrastructure. VMware has committed to supporting and enhancing PKS as a central component of VMware Tanzu, it’s new application portfolio. 
+
+<p>The following table shows the recommended ways of running MongoDB on VMware / Pivotal Cloud Foundry going forward. 
+
+<table class="nice">
+    <th>Deployment Environment</th>
+    <th>Application Layer</th>
+    <th>Data Services Layer</th>
+    <th>Infrastructure Layer</th>
+    <tr>
+      <td>On-Premises</td>
+      <td>Pivotal Application Server PAS</td>
+      <td>MongoDB Kubernetes Operator
+      MongoDB Ops Manager</td>
+      <td>VMWare PKS</td>
+    </tr>
+    <tr>
+      <td>Public Cloud</td>
+      <td>Pivotal Application Server PAS</td>
+      <td>MongoDB Atlas Open Service Broker</td>
+      <td>MongoDB Atlas
+      Cloud Foundry</td>
+    </tr>
+</table>
+
+<p>The MongoDB Entperise Service for VMware Tanzu will only be supported in production environments until <b>September 1, 2020</b>, giving you several months to plan and execute the migration. Critical CVEs and bug fixes will still be addressed until that date.
+
+<p>Updates and migration resources will be posted to this page in the coming weeks.
+
+Please reach out to us at 
+<a href="https://support.mongodb.com">MongoDB Support</a>
+if you have any questions.
+
+
+
