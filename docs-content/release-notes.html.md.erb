@@ -2,9 +2,6 @@
 title: Release Notes
 owner: Partners
 ---
-### v1.2.5
-
-**Release Date**: April 17, 2020
 
 <p class="note warning"><strong>DEPRECATION WARNING:</strong>
 The MongoDB Entperise Service for VMware Tanzu will only be supported in production environments until September 1, 2020. We strongly discourge the adoption of this tile for any new or existing projects. There are 2 officially endorsed go-forward options for users.
@@ -14,6 +11,16 @@ Please contact the team at
 <a href="https://support.mongodb.com">MongoDB Support</a>
 with any questions.
 </p>
+
+### v1.2.6
+
+**Release Date**: April 21, 2020
+
+* Tightened up string handling in the config agent default configuration template. This addresses possible corruption of deployments created with older version of the tiles. In some rare cases, in which random strings get incorrectly cast to numerics by the go-lang and Ruby templating system in the Tile SDK.
+
+### v1.2.5
+
+**Release Date**: April 17, 2020
 
 * Added support for VMware PCF 2.8
 * Added support for MongoDB Ops Manager 4.2
